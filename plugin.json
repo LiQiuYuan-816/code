@@ -5,12 +5,12 @@
   },
   "data": [
     {
-      "name": "Tàng Thư Các Cá Nhân",
-      "author": "liqiuyuan",
-      "path": "https://liqiuyuan-816.github.io/web-doc-truyen/plugin.json",
+      "name": "Tàng Thư Các (Only)",
+      "author": "LiQiuYuan",
+      "path": "https://github.com/LiQiuYuan-816/code/blob/main/webdoctruyen/plugin.zip",
       "version": 1,
       "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
-      "icon": "https://liqiuyuan-816.github.io/web-doc-truyen/favicon.ico",
+      "icon": "https://github.com/LiQiuYuan-816/code/blob/main/webdoctruyen/icon.png",
       "description": "Đọc truyện trên trang Tàng Thư Các Cá Nhân",
       "type": "novel",
       "locale": "vi_VN"
