@@ -1,18 +1,19 @@
 {
   "metadata": {
-    "name": "Tàng Thư Các Cá Nhân",
-    "author": "liqiuyuan",
-    "version": 1,
-    "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
-    "regexp": "liqiuyuan-816\\.github\\.io/web-doc-truyen/",
-    "description": "Nguồn truyện từ Tàng Thư Các Cá Nhân trên GitHub Pages",
-    "locale": "vi_VN",
-    "type": "novel"
+    "author": "vBook",
+    "description": ""
   },
-  "script": {
-    "home": "home.js",
-    "detail": "detail.js",
-    "toc": "toc.js",
-    "chap": "chap.js"
-  }
+  "data": [
+    {
+      "name": "Tàng Thư Các (Only)",
+      "author": "liqiuyuan",
+      "path": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/master/bachngocsach/plugin.zip",
+      "version": 1,
+      "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
+      "icon": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/master/bachngocsach/icon.png",
+      "description": "Đọc truyện trên trang bachngocsach.cc/reader",
+      "type": "novel",
+      "locale": "vi_VN"
+    }
+      ]
 }
