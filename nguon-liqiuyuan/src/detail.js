@@ -1,81 +1,80 @@
-function execute(url) {
-    // ===== LẤY DỮ LIỆU TRANG CHI TIẾT =====
-    let doc = fetch(url).html();
-
-    // Tạo link tuyệt đối đến file stories.json
-    let urlObj = new URL(url);
-    let pathParts = urlObj.pathname.split("/").filter(p => p);
-    let currentSlug = pathParts.length >= 2 ? pathParts[pathParts.length - 2] : "";
-    let storiesJsonUrl = `${urlObj.origin}/web-doc-truyen/stories.json`;
-
-    // Tải dữ liệu từ stories.json
-    let storiesData = [];
+// ===== TẢI CẤU HÌNH config.js =====
+if (typeof BASE_URL === "undefined" || !BASE_URL) {
     try {
-        storiesData = fetch(storiesJsonUrl).json() || [];
+        var _configUrl = new URL("config.js", url);
+        var _configText = fetch(_configUrl.href).text();
+        eval(_configText);
     } catch (e) {
-        storiesData = [];
+        var BASE_URL = "https://liqiuyuan-816.github.io/web-doc-truyen/";
+        var USER_AGENT = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0";
     }
+}
 
-    // Tìm thông tin truyện trong stories.json theo slug
-    let jsonInfo = {};
-    if (currentSlug && storiesData.length > 0) {
-        jsonInfo = storiesData.find(s => s.slug === currentSlug) || {};
+// ===== HÀM HỖ TRỢ CHUẨN =====
+function absUrl(url) {
+    if (!url) return "";
+    url = String(url);
+    if (url.indexOf("//") === 0) return "https:" + url;
+    if (/^https?:\/\//i.test(url)) return url;
+    if (url.charAt(0) !== "/" && !BASE_URL.endsWith("/")) url = "/" + url;
+    return BASE_URL + url;
+}
+
+function cleanText(value) {
+    if (!value) return "";
+    return String(value)
+        .replace(/\u00a0/g, " ")
+        .replace(/[\t\f\v]+/g, " ")
+        .replace(/\r\n?/g, "\n")
+        .replace(/[ \t]*\n[ \t]*/g, "\n")
+        .replace(/[ \t]{2,}/g, " ")
+        .trim();
+}
+
+function firstText(doc, selectors) {
+    if (!Array.isArray(selectors)) selectors = [selectors];
+    for (var i = 0; i < selectors.length; i++) {
+        var el = doc.querySelector(selectors[i]);
+        if (el) {
+            var text = cleanText(el.textContent);
+            if (text) return text;
+        }
     }
+    return "";
+}
 
-    // ===== TRỊ GIÁ ƯU TIÊN: JSON trước → trang chi tiết sau =====
-    let name = jsonInfo.title ||
-               doc.querySelector(".novel-title")?.textContent?.trim() ||
-               "Truyện";
+// ===== HÀM CHÍNH: LẤY THÔNG TIN TRUYỆN =====
+function execute(url) {
+    url = absUrl(url);
 
-    let author = jsonInfo.author ||
-                 (doc.querySelector(".author")?.textContent || "").replace("✍️", "").trim() ||
-                 "Chưa cập nhật";
-
-    let totalChapters = jsonInfo.chapters || "?";
-    let cover = jsonInfo.cover || doc.querySelector(".cover-image img")?.src || "";
-
-    // ===== LẤY THÔNG TIN TỪ TRANG CHI TIẾT =====
-    let status = "Chưa rõ";
-    let category = "Tổng hợp";
-
-    // Trạng thái & số chương từ trang
-    let metaText = doc.querySelector(".novel-meta")?.textContent || "";
-    if (metaText.includes("Hoàn thành")) status = "Hoàn thành";
-    if (metaText.includes("Đang tiến hành")) status = "Đang tiến hành";
-    let chapMatch = metaText.match(/(\d+)\s*chương/);
-    if (chapMatch) totalChapters = chapMatch[1];
-
-    // Thể loại / Thẻ
-    let tags = [];
-    doc.querySelectorAll(".tag-line span").forEach(el => {
-        let t = (el.textContent || "").trim();
-        if (t) tags.push(t);
-    });
-    if (tags.length > 0) category = tags.join(" · ");
-
-    // Mô tả / Văn án
-    let description = doc.querySelector(".section .content")?.textContent?.trim() || "Chưa có mô tả.";
-
-    // ===== LẤY DANH SÁCH CHƯƠNG TỪ MỤC LỤC =====
-    let chapters = [];
-    doc.querySelectorAll("section li a").forEach(a => {
-        let href = a.getAttribute("href");
-        let title = (a.textContent || "").trim();
-        if (href && title) {
-            let chapUrl = new URL(href, url).href;
-            chapters.push({ title: title, url: chapUrl });
+    var response = fetch(url, {
+        headers: {
+            "User-Agent": USER_AGENT || "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0",
+            "Referer": BASE_URL
         }
     });
 
-    // ===== TRẢ KẾT QUẢ =====
+    if (!response.ok) {
+        return Response.error("❌ Không tải được trang truyện: Lỗi " + response.status);
+    }
+
+    var doc = response.html();
+
+    var name = firstText(doc, [".novel-title", "h1", ".book-title", "title"]);
+    var author = firstText(doc, [".novel-author", ".author", ".book-author"]);
+    var coverEl = doc.querySelector(".novel-cover img, .book-cover img, .cover img, img.cover");
+    var cover = coverEl ? absUrl(coverEl.getAttribute("src")) : "";
+    var intro = firstText(doc, [".novel-intro", ".book-intro", ".summary", ".description", "main > p"]);
+
+    if (!name) {
+        return Response.error("⚠️ Không tìm thấy tên truyện trên trang.");
+    }
+
     return Response.success({
         name: name,
+        author: author || "Không rõ",
         cover: cover,
-        author: author,
-        description: description,
-        status: status,
-        category: category,
-        totalChapters: totalChapters,
-        chapters: chapters
+        description: intro || "Chưa có mô tả.",
+        host: BASE_URL
     });
 }

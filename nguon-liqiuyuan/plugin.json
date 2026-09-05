@@ -1,19 +1,22 @@
 {
   "metadata": {
-    "author": "liqiuyuan",
-    "description": "Nguồn truyện từ Tàng Thư Các Cá Nhân trên GitHub Pages"
+    "name": "Tàng Thư Các (Only)",
+    "author": "LiQiuYuan",
+    "version": 1,
+    "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
+    "regexp": "liqiuyuan-816\\.github\\.io/web-doc-truyen/[a-zA-Z0-9/-]*",
+    "description": "Đọc truyện trên trang Tàng Thư Các Cá Nhân",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel"
   },
-  "data": [
-    {
-      "name": "Tàng Thư Các (Only)",
-      "author": "liqiuyuan",
-      "path": "https://liqiuyuan-816.github.io/web-doc-truyen/plugin.json",
-      "version": 1,
-      "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
-      "icon": "https://liqiuyuan-816.github.io/web-doc-truyen/favicon.ico",
-      "description": "Đọc truyện trên trang Tàng Thư Các Cá Nhân",
-      "type": "novel",
-      "locale": "vi_VN"
-    }
-  ]
+  "script": {
+    "home": "home.js", 
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
 }
