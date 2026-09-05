@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "name": "Tàng Thư Các Cá Nhân",
+    "author": "liqiuyuan",
+    "version": 1,
+    "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
+    "regexp": "liqiuyuan-816\\.github\\.io/web-doc-truyen/",
+    "description": "Nguồn truyện từ Tàng Thư Các Cá Nhân trên GitHub Pages",
+    "locale": "vi_VN",
+    "type": "novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
