@@ -1,117 +1,69 @@
-// ===== TẢI CẤU HÌNH config.js =====
-if (typeof BASE_URL === "undefined" || !BASE_URL) {
-    try {
-        var _configUrl = new URL("config.js", url);
-        var _configText = fetch(_configUrl.href).text();
-        eval(_configText);
-    } catch (e) {
-        // Dùng giá trị mặc định nếu tải thất bại
-        var BASE_URL = "https://liqiuyuan-816.github.io/web-doc-truyen/";
-        var USER_AGENT = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0";
-    }
-}
+load('config.js');
 
-// ===== HÀM HỖ TRỢ CHUẨN =====
-function absUrl(url) {
-    if (!url) return "";
-    url = String(url);
-    if (url.indexOf("//") === 0) return "https:" + url;
-    if (/^https?:\/\//i.test(url)) return url;
-    if (url.charAt(0) !== "/" && !BASE_URL.endsWith("/")) url = "/" + url;
-    return BASE_URL + url;
-}
-
-function cleanText(value) {
-    if (!value) return "";
-    return String(value)
-        .replace(/\u00a0/g, " ")
-        .replace(/[\t\f\v]+/g, " ")
-        .replace(/\r\n?/g, "\n")
-        .replace(/[ \t]*\n[ \t]*/g, "\n")
-        .replace(/[ \t]{2,}/g, " ")
-        .trim();
-}
-
-function firstText(doc, selectors) {
-    if (!Array.isArray(selectors)) selectors = [selectors];
-    for (var i = 0; i < selectors.length; i++) {
-        var el = doc.querySelector(selectors[i]);
-        if (el) {
-            var text = cleanText(el.textContent);
-            if (text) return text;
-        }
-    }
-    return "";
-}
-
-// ===== HÀM CHÍNH LẤY NỘI DUNG CHƯƠNG =====
 function execute(url) {
-    // Chuẩn hóa link
-    url = absUrl(url);
-
-    // Tải trang với UA đúng chuẩn
-    var response = fetch(url, {
-        headers: {
-            "User-Agent": USER_AGENT || "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0",
-            "Referer": BASE_URL
-        }
-    });
-
-    if (!response.ok) {
-        return Response.error("❌ Không tải được chương: Lỗi " + response.status);
-    }
-
-    var doc = response.html();
+    let res = fetch(url);
+    if (!res.ok) return Response.error("⚠️ Lỗi tải chương: " + res.status);
+    let doc = res.html();
 
     // ===== LẤY TIÊU ĐỀ CHƯƠNG =====
-    var chapterTitle = firstText(doc, [
-        ".novel-meta span",
-        ".novel-title",
-        "h1",
-        "title"
-    ]) || "Chương";
-
-    // ===== LẤY NỘI DUNG CHƯƠNG =====
-    var contentParts = [];
-    var contentEl = doc.querySelector(".chapter-content") || doc.querySelector("main .content");
-
-    if (contentEl) {
-        // Loại bỏ thẻ script/style/quảng cáo trước khi lấy nội dung
-        contentEl.querySelectorAll("script, style, noscript, iframe, .ad, .advertisement").forEach(function(el) {
-            el.parentNode.removeChild(el);
-        });
-
-        // Lấy từng đoạn văn
-        var paragraphs = contentEl.querySelectorAll("p");
-        paragraphs.forEach(function(p) {
-            var text = cleanText(p.textContent);
-            if (text) contentParts.push(text);
-        });
+    let chapterTitle = "";
+    try {
+        let ms = doc.querySelector(".novel-meta span");
+        if (ms) chapterTitle = (ms.textContent || "").trim();
+    } catch(e) {}
+    if (!chapterTitle) {
+        try {
+            let nt = doc.querySelector(".novel-title");
+            if (nt) chapterTitle = (nt.textContent || "").trim();
+        } catch(e) {}
     }
+    if (!chapterTitle) chapterTitle = "Chương";
 
-    // ===== PHƯƠNG ÁN DỰ PHÒNG =====
-    if (contentParts.length === 0) {
-        var mainEl = doc.querySelector("main");
-        if (mainEl) {
-            var allText = cleanText(mainEl.textContent);
-            // Loại bỏ thanh điều hướng / nút bấm ở đầu và cuối
-            allText = allText.replace(/📑 Mục lục[\s\S]*?(?=Đọc tiếp|$)/g, "");
-            allText = allText.replace(/📌 Kẹp sách[\s\S]*$/g, "");
-            allText = allText.replace(/⏭ Chương sau[\s\S]*$/g, "");
-            // Tách thành các đoạn
-            contentParts = allText.split(/\n\s*\n/).filter(function(p) {
-                return p.trim().length > 10;
-            });
+    // ===== LẤY NỘI DUNG CHỈ VĂN BẢN THUẦN TUÝ =====
+    let contentParts = [];
+    try {
+        let contentEl = doc.querySelector(".chapter-content") || doc.querySelector("main .content") || doc.querySelector("main");
+        if (contentEl) {
+            let paragraphs = contentEl.querySelectorAll("p");
+            if (paragraphs && paragraphs.length > 0) {
+                for (let i = 0; i < paragraphs.length; i++) {
+                    // === CHỈ LẤY textContent === BỎ HOÀN TOÀN định dạng, style, font ===
+                    let text = (paragraphs[i].textContent || "").trim();
+                    if (text) contentParts.push(text);
+                }
+            }
         }
+    } catch(e) {}
+
+    // Fallback: lấy văn bản trong <main>
+    if (contentParts.length === 0) {
+        try {
+            let mainEl = doc.querySelector("main");
+            if (mainEl) {
+                // === CHỈ LẤY textContent thuần túy ===
+                let allText = mainEl.textContent || "";
+                // Xóa các phần điều hướng phụ lục
+                allText = allText.replace(/📑 Mục lục[\s\S]*?⏭ Chương sau/g, "");
+                allText = allText.replace(/📌 Kẹp sách[\s\S]*$/g, "");
+                allText = allText.replace(/^\s+|\s+$/g, "");
+                // Tách đoạn văn bản
+                let arr = allText.split(/\n\s*\n/);
+                for (let j = 0; j < arr.length; j++) {
+                    let p = arr[j].trim();
+                    if (p) contentParts.push(p);
+                }
+            }
+        } catch(e) {}
     }
 
-    // ===== TRẢ KẾT QUẢ =====
-    var result = "### " + chapterTitle + "\n\n";
-
+    // ===== TRẢ VỀ ĐỊNH DẠNG VĂN BẢN THUẦN TUÝ =====
+    // Không có thẻ HTML, không có style/font → vBook tự hiển thị theo font mặc định
+    let result = "### " + chapterTitle + "\n\n";
     if (contentParts.length > 0) {
-        result += contentParts.join("\n\n");
+        // === Chỉ nối văn bản bằng dấu xuống dòng === KHÔNG có định dạng HTML nào khác
+        result = result + contentParts.join("\n\n");
     } else {
-        return Response.error("⚠️ Không tìm thấy nội dung chương. Cấu trúc trang có thể đã thay đổi.");
+        result = result + "⚠️ Không trích xuất được nội dung chương.";
     }
 
     return Response.success(result);

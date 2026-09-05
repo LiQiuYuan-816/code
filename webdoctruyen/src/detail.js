@@ -1,80 +1,121 @@
-// ===== TẢI CẤU HÌNH config.js =====
-if (typeof BASE_URL === "undefined" || !BASE_URL) {
-    try {
-        var _configUrl = new URL("config.js", url);
-        var _configText = fetch(_configUrl.href).text();
-        eval(_configText);
-    } catch (e) {
-        var BASE_URL = "https://liqiuyuan-816.github.io/web-doc-truyen/";
-        var USER_AGENT = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0";
-    }
-}
+load('config.js');
 
-// ===== HÀM HỖ TRỢ CHUẨN =====
-function absUrl(url) {
-    if (!url) return "";
-    url = String(url);
-    if (url.indexOf("//") === 0) return "https:" + url;
-    if (/^https?:\/\//i.test(url)) return url;
-    if (url.charAt(0) !== "/" && !BASE_URL.endsWith("/")) url = "/" + url;
-    return BASE_URL + url;
-}
-
-function cleanText(value) {
-    if (!value) return "";
-    return String(value)
-        .replace(/\u00a0/g, " ")
-        .replace(/[\t\f\v]+/g, " ")
-        .replace(/\r\n?/g, "\n")
-        .replace(/[ \t]*\n[ \t]*/g, "\n")
-        .replace(/[ \t]{2,}/g, " ")
-        .trim();
-}
-
-function firstText(doc, selectors) {
-    if (!Array.isArray(selectors)) selectors = [selectors];
-    for (var i = 0; i < selectors.length; i++) {
-        var el = doc.querySelector(selectors[i]);
-        if (el) {
-            var text = cleanText(el.textContent);
-            if (text) return text;
-        }
-    }
-    return "";
-}
-
-// ===== HÀM CHÍNH: LẤY THÔNG TIN TRUYỆN =====
 function execute(url) {
-    url = absUrl(url);
+    let res = fetch(url);
+    if (!res.ok) return Response.error("Lỗi tải trang: " + res.status);
+    let doc = res.html();
 
-    var response = fetch(url, {
-        headers: {
-            "User-Agent": USER_AGENT || "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) vBook/1.0",
-            "Referer": BASE_URL
+    let urlObj = new URL(url);
+    let pathname = urlObj.pathname;
+    let pathParts = pathname.split("/");
+    let currentSlug = "";
+    if (pathParts.length >= 2) {
+        currentSlug = pathParts[pathParts.length - 2];
+    }
+
+    let storiesData = [];
+    try {
+        let jsonRes = fetch(BASE_DOMAIN + "/web-doc-truyen/stories.json");
+        if (jsonRes.ok) {
+            storiesData = jsonRes.json() || [];
         }
-    });
+    } catch(e) {}
 
-    if (!response.ok) {
-        return Response.error("❌ Không tải được trang truyện: Lỗi " + response.status);
+    let jsonInfo = {};
+    if (storiesData.length > 0 && currentSlug) {
+        for (let i = 0; i < storiesData.length; i++) {
+            if (storiesData[i].slug === currentSlug) {
+                jsonInfo = storiesData[i];
+                break;
+            }
+        }
     }
 
-    var doc = response.html();
-
-    var name = firstText(doc, [".novel-title", "h1", ".book-title", "title"]);
-    var author = firstText(doc, [".novel-author", ".author", ".book-author"]);
-    var coverEl = doc.querySelector(".novel-cover img, .book-cover img, .cover img, img.cover");
-    var cover = coverEl ? absUrl(coverEl.getAttribute("src")) : "";
-    var intro = firstText(doc, [".novel-intro", ".book-intro", ".summary", ".description", "main > p"]);
-
+    // Lấy tên truyện
+    let name = jsonInfo.title || "";
     if (!name) {
-        return Response.error("⚠️ Không tìm thấy tên truyện trên trang.");
+        try {
+            let h1 = doc.querySelector("h1");
+            if (h1) name = h1.textContent || "";
+        } catch(e) {}
     }
+    if (!name) {
+        try {
+            let nt = doc.querySelector(".novel-title");
+            if (nt) name = nt.textContent || "";
+        } catch(e) {}
+    }
+    name = name.trim() || "Truyện";
+
+    // Lấy tác giả
+    let author = jsonInfo.author || "";
+    if (!author) {
+        try {
+            let authEl = doc.querySelector(".author");
+            if (authEl) {
+                author = authEl.textContent || "";
+                author = author.replace("✍️", "").trim();
+            }
+        } catch(e) {}
+    }
+    author = author || "Không rõ";
+
+    // Lấy bìa
+    let cover = jsonInfo.cover || "";
+    if (!cover) {
+        try {
+            let img = doc.querySelector(".cover-image img");
+            if (img) cover = img.getAttribute("src") || "";
+        } catch(e) {}
+    }
+
+    // Thông tin khác
+    let totalChapters = jsonInfo.chapters || "?";
+    let status = "Chưa rõ";
+    try {
+        let metaEl = doc.querySelector(".novel-meta");
+        if (metaEl) {
+            let metaText = metaEl.textContent || "";
+            if (metaText.indexOf("Hoàn thành") >= 0) status = "Hoàn thành";
+            else if (metaText.indexOf("Đang tiến hành") >= 0) status = "Đang tiến hành";
+            let chapMatch = metaText.match(/(\d+)\s*chương/);
+            if (chapMatch && chapMatch[1]) totalChapters = chapMatch[1];
+        }
+    } catch(e) {}
+
+    // Mô tả
+    let description = "Chưa có mô tả.";
+    try {
+        let descEl = doc.querySelector(".section .content");
+        if (descEl) description = (descEl.textContent || "").trim() || description;
+    } catch(e) {}
+
+    // Danh sách chương
+    let chapters = [];
+    try {
+        let links = doc.querySelectorAll("section li a");
+        if (links && links.length > 0) {
+            for (let j = 0; j < links.length; j++) {
+                let a = links[j];
+                let href = a.getAttribute("href") || "";
+                let title = (a.textContent || "").trim();
+                if (href && title) {
+                    chapters.push({
+                        name: title,
+                        url: new URL(href, url).href
+                    });
+                }
+            }
+        }
+    } catch(e) {}
 
     return Response.success({
         name: name,
-        author: author || "Không rõ",
         cover: cover,
-        description: intro || "Chưa có mô tả.",
-        host: BASE_URL
+        author: author,
+        description: description,
+        status: status,
+        totalChapters: totalChapters,
+        chapters: chapters
     });
 }
