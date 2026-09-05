@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 0 Tiết tử</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Style dùng chung -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="page-chapter">
+
+
+  <!-- ===== NÚT MỞ THƯ VIỆN (TRÁI) ===== -->
+  <div class="menu-toggle" onclick="toggleLibrary()">☰</div>
+
+  <div class="overlay" id="overlay" onclick="toggleLibrary()"></div>
+
+  <div class="library-sidebar" id="librarySidebar">
+    <div class="library-header">
+      📚 Thư viện
+      <span class="close-btn" onclick="toggleLibrary()">✕</span>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm truyện..." />
+    <ul id="storyList"></ul>
+  </div>
+
+
+  <!-- ===== NÚT MỞ MỤC LỤC (PHẢI) ===== -->
+  <div class="chapter-menu-toggle" onclick="toggleChapterMenu()">📑</div>
+
+  <div id="chapterOverlay" class="chapter-overlay" onclick="toggleChapterMenu()"></div>
+
+  <div id="chapterSidebar" class="chapter-sidebar">
+    <div class="chapter-sidebar-header">
+      📚 Mục lục
+      <span class="close-btn" onclick="toggleChapterMenu()">✕</span>
+    </div>
+
+    <ul id="chapterList"></ul>
+  </div>
+<!-- ================= HEADER ================= -->
+<div class="fixed-top">
+  <div class="fixed-inner page-chapter">
+
+    <!-- LEFT -->
+    <div class="top-left">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <button id="bookmarkBtn" class="back-link">📌 Kẹp sách</button>
+    </div>
+    <!-- CENTER -->
+    <div class="novel-header top-center">
+      <h1 class="novel-title">
+        Bình Nam Vương phủ bằng nam ký
+      </h1>
+      <div class="novel-meta">
+        <span>Chương 0 Tiết tử</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG -->
+    <div class="top-right">
+      
+      <a class="back-link" href="chuong2.html">⏭ Chương sau</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<main>
+<div class="content chapter-content">
+<p>Giữa hè ban đêm, không có gió lạnh phơ phất, chỉ có oi bức cùng táo bạo ve minh.</p>
+<p>Ở vào nào đó đô thị trên nhà cao tầng, độc thân chung cư, Triệu Nhân Hà đang ở bùm bùm đánh bàn phím, trên màn hình máy tính hồ sơ số lượng từ càng ngày càng nhiều, mãi cho đến cuối cùng kết cục, bảo tồn lúc sau, thượng truyền đi lên, hắn mới nhẹ nhàng thở ra, nắm lên một bên nửa cái dưa hấu, đào một mồm to ăn.</p>
+<p>Cái này độc thân chung cư không lớn, không đến 40 bình, một trương rất lớn giường đôi, một tổ đơn giản tủ quần áo, cùng với một cái máy tính bàn, một cái máy tính ghế, một ít dựa tường phóng giản dị trên kệ sách, thả một ít về lịch sử thư tịch, mặt khác, toilet nhưng thật ra rất đại, phân trong ngoài hai gian, bên trong có thể thượng WC, bên ngoài có thể tắm rửa, phân tách ướt và khô.</p>
+<p>Cửa có toàn tự động máy giặt, cửa sổ thượng một cái sào phơi đồ, không lớn, nhưng cũng đủ tinh xảo, có thể phơi nắng chút ít quần áo.</p>
+<p>Đây là toàn bộ chung cư bố cục.</p>
+<p>Triệu Nhân Hà có thể có như vậy một cái an cư lạc nghiệp chỗ, là hắn gõ chữ mười năm tới đoạt được, từ cùng trong nhà xuất quỹ lúc sau, hắn đã bị cha mẹ cấp đuổi ra tới, may mắn hắn còn có cái đại ca Triệu nhân gia, rất là chiếu cố hắn, hắn cùng muội muội cùng đại ca kém 18 tuổi tuổi tác, đại ca đại tẩu quả thực là cái thứ hai ba mẹ.</p>
+<p>Triệu Nhân Hà cùng thân muội muội Triệu nhân mỹ là long phượng thai, chỉ là đại khái là hai anh em là kế hoạch hoá gia đình cá lọt lưới, này hai hài tử ở Triệu mẫu 21 tuổi hạn chế sinh đẻ, 18 năm lúc sau thế nhưng lại lần nữa mang thai, bởi vì Triệu mụ mụ lúc ấy tuổi lớn, trái tim cũng không tốt, không dám sinh non, thả hài tử tháng lớn cũng không hảo làm đi xuống, chỉ hảo căng da đầu sinh xuống dưới, thế nhưng là một đôi long phượng thai.</p>
+<p>Cũng may mắn là bởi vì trước kia đã làm hạn chế sinh đẻ, là thuộc về kia một phần vạn thất bại tỷ lệ, cho nên hai người bọn họ sinh ra lúc sau, không có bị phạt tiền.</p>
+<p>Cha mẹ công tác cũng không có bị vứt bỏ, hơn nữa đại ca lúc ấy đều lớn, cũng có thể chia sẻ việc nhà, làm vợ chồng công nhân viên gia đình, thu vào tự nhiên xa xỉ, lúc này mới đưa bọn họ hai nuôi lớn.</p>
+<p>Lúc ấy đại ca đều thượng đại một.</p>
+<p>Bọn họ mới sinh ra mà thôi, đại ca tốt nghiệp tham gia công tác, hai người bọn họ mới có thể đi đường.</p>
+<p>20 năm lúc sau, Triệu Nhân Hà phát hiện chính mình thích giới tính là cùng chính mình giống nhau, vì thế quyết đoán cùng người trong nhà xuất quỹ, lại sau đó…… Hắn đã bị phân gia ra tới.</p>
+<p>May mắn đại tẩu bụng tranh đua a, một hơi sinh hai cái nhi tử, một đôi nhi nam hài nhi!</p>
+<p>Từ đó về sau, trong nhà không thiếu tôn tử.</p>
+<p>Mấy năm nay cha mẹ thái độ cũng mềm hoá một ít, chính là muội muội không quá làm người bớt lo.</p>
+<p>Hai anh em đi học thời điểm liền đều thiên khoa, văn khoa tốt nhất, toán học kém cỏi nhất, sau lại đều ghi danh văn khoa trường học, ra trường học đại môn, liền thành internet tay bút.</p>
+<p>Chẳng qua hứng thú không giống nhau, hắn chủ công internet văn học, huyền huyễn đề tài viết một chút, nhưng là càng thích lịch sử đề tài.</p>
+<p>Đặc biệt là sất trá chiến trường cái loại này, phong vân tế hội, nhiệt huyết báo quốc gì đó, càng muốn viết lại lịch sử, làm Trung Nguyên vương triều sừng sững không ngã, dù sao các loại nhiệt huyết sôi trào văn, cũng có một ít trung thành người đọc, trung thực đuổi theo hắn văn xem.</p>
+<p>Muội muội còn lại là thành não tàn hoa si, yêu nhất bá đạo tổng tài, băng sơn giáo thảo kia một loại hình nam nhân hoặc là nam sinh, trong đời sống hiện thực, thượng chỗ nào tìm như vậy chất lượng tốt nam nhân đi a?</p>
+<p>Liền tính là có, nhân gia muốn tiền có tiền, muốn mạo có mạo, bên người hồng nhan tri kỷ không biết nhiều ít, có thể coi trọng ngươi?</p>
+<p>Lại nói, nhà ai tổng tài không phải bốn năm chục tuổi tuổi tác a? Đều không nhất định là mấy hôn được chứ.</p>
+<p>Vì thế hai anh em đều 30, còn đều là độc thân.</p>
+<p>Đảo không phải hai người bọn họ chọn, chỉ là một cái tính hướng đặc thù, một cái lão ái nằm mơ, cha mẹ đều đã mặc kệ hai người bọn họ.</p>
+<p>Quản cũng quản không dậy nổi.</p>
+<p>Nhưng thật ra đại tẩu thực hòa khí, nói, hai cái nhi tử, tổng có thể cho bọn họ tiểu thúc tiểu cô dưỡng lão tống chung.</p>
+<p>Bởi vì có đại tẩu những lời này, cha mẹ mới không hề buộc muội muội kết hôn, nhưng là tương thân, vẫn là muốn!</p>
+<p>Gần nhất bởi vì cung đình kịch nhiệt bá, cổ trang tiểu thuyết lại có tân nhiệt độ, muội muội Triệu nhân mỹ cũng không biết suy nghĩ cái gì, thế nhưng khai cái tân cổ trang tiểu thuyết…… Nàng liền không phải viết cổ đại ngôn tình tiểu thuyết liêu.</p>
+<p>“Đinh linh linh!” Là video trò chuyện.</p>
+<p>Triệu Nhân Hà mở ra lúc sau, hình ảnh xuất hiện muội muội kia quen thuộc mặt “Nhị ca, nhị ca! Ngươi thượng truyền không có a?”</p>
+<p>“Truyền lên rồi, ta nói, ngươi về sau cũng đừng viết cái này đề tài, bên trong một đống BUG không nói, kia cũng không lưu loát a?” Triệu Nhân Hà phun tào “Cổ đại tiểu thiếp dám tính kế đương gia chủ mẫu? Đã sớm chết không thể càng đã chết! Còn có a, tiểu thiếp mỗi ngày muốn đi cấp chủ mẫu thỉnh an vấn an, xốc rèm cửa quạt tử là không giả, nhưng đó là tiện thiếp làm sự tình, chính thức nhị phòng hoặc là quý thiếp, là không thể như vậy đạp hư, ngươi kia logic cũng không lưu loát, chính thất phu nhân còn dùng đối tiểu thiếp nén giận? Đã sớm đại tát tai đánh lên rồi.”</p>
+<p>Phong kiến thời đại tự có một bộ hành sự chuẩn tắc, liền muội muội dưới ngòi bút kia nhân vật, phỏng chừng ở chân chính nhà cao cửa rộng sống không quá ba tháng phải chơi xong.</p>
+<p>“Này không phải vì cẩu huyết nhiều một ít sao!” Triệu nhân mỹ ở video bên kia nhìn nàng nhị ca nói “Ba ba hôm nay còn nói, làm ta ngày mai cướp tân nhân…… A không phải, tương thân.”</p>
+<p>“Muội tử a, ngươi nếu có thể tìm nói, liền tìm một cái đi, ngươi này điều kiện cũng khá tốt, tổng so ngươi nhị ca cường.” Triệu Nhân Hà sờ sờ khuôn mặt, bằng lương tâm nói, hai anh em lớn lên rất giống, Triệu nhân mỹ ngoại hiệu “Triệu mỹ nhân”, mặt trái xoan, mày lá liễu, miệng anh đào nhỏ một chút, làn da trắng nõn, cười còn có hai cái lúm đồng tiền nhi, một nữ nhân trưởng thành như vậy, có thể nói thực không tồi, nhưng là một người nam nhân trưởng thành như vậy…… Từ nhỏ đến lớn, Triệu Nhân Hà cảm thấy chính mình cong hoàn toàn là bị người khác hiểu lầm thành mỹ nữ cấp bẻ cong!</p>
+<p>Triệu Nhân Hà không nghĩ lại tâm tắc, vì thế cùng muội muội Triệu nhân mỹ nói “Hảo, ta giúp ngươi đem cái kia văn kết cục đều viết xong, ngươi nếu là còn tưởng viết nói, liền viết cái phiên ngoại đi, nhưng là ngàn vạn đừng lại bậy bạ a? Cái gì vương phủ thê thiếp đấu pháp nhớ a? Ta xem giống như là một nồi lẩu thập cẩm.”</p>
+<p>“Không lớn rau trộn không xuất sắc sao!” Triệu nhân mỹ dẩu miệng giả đáng yêu “Cảm ơn nhị ca hỗ trợ, ta lần đầu tiên viết loại này đề tài, tìm nửa ngày tư liệu sống cũng không có thể đầy đặn lên, chỉ có thể bậy bạ sáu kéo phối hợp, ta chính mình đều cảm thấy đau đầu, thật bội phục cổ đại nữ nhân, ở hậu viện nhàn rỗi nhàm chán có thể nghĩ ra như vậy nhiều thủ đoạn tới chơi.”</p>
+<p>“Này đó nữ nhân đều là đại môn không ra nhị môn không mại, ở hậu viện không có việc gì để làm, không phải nghĩ trạch đấu sao? Từng cái đấu thành gà chọi, một đám nữ nhân tranh một người nam nhân, hậu cung càng sâu.” Viết lịch sử đề tài tiểu thuyết người, nhất định hiểu biết lịch sử, trên dưới 5000 năm văn minh tinh túy, hậu cung đích xác chiếm rất lớn một trương độ dài, từ buông rèm chấp chính đến nữ hoàng đăng cơ, hậu cung các nữ nhân liền không có một cái là thiện tra nhi.</p>
+<p>Mà muội muội viết cái loại này quả thực là tiểu nhi khoa a.</p>
+<p>“Tính, ta không viết cái này đề tài, vẫn là viết ta vườn trường thuần thuần tình yêu, băng sơn giáo thảo đi!” Triệu nhân mỹ triều màn ảnh vẫy vẫy tay “Kia nhị ca, ngủ ngon.”</p>
+<p>“Ngủ ngon.” Triệu Nhân Hà cũng vẫy vẫy tay, cùng muội muội từ biệt, đóng video lúc sau, mở ra chính mình hồ sơ.</p>
+<p>Đây là hắn tiếp theo cái tân văn, tên còn không có tưởng hảo, nhưng là các nhân vật thiết kế đã viết hảo, một cái vương phủ con vợ lẽ quật khởi, an bài lão Vương gia, lão vương phi, Vương gia, vương phi đều hết thảy đi tìm chết hảo, cả nhà chết sạch, dư lại một cái con vợ lẽ kế thừa gia nghiệp…… Suy nghĩ một chút còn rất xuôi gió xuôi nước, nhưng là có đồng hành nói như vậy quá đơn giản.</p>
+<p>Ngươi đến trải qua trăm cay ngàn đắng, mới có thể lộng chết nhóm người này, sau đó chính mình đương Vương gia.</p>
+<p>Còn có người nói hắn này ngay từ đầu liền khá tốt một thân phân, nhưng là không có tính khiêu chiến.</p>
+<p>Bởi vì người khác vai chính, hoặc là là một cái thảo căn bình dân nghịch tập thành đại quan, thậm chí là khai quốc hoàng đế, hoặc là chính là gia cảnh bần hàn không đệ tú tài từ từ, cuối cùng bỏ văn từ võ, trở thành một phong cương đại quan, tay cầm trọng binh…… Ít nhất từng điểm từng điểm hướng lên trên bò, dốc lòng lại xuất sắc, còn có thể nhiều ra tới không ít số lượng từ.</p>
+<p>Nhưng Triệu Nhân Hà không nghĩ như vậy viết, cảm thấy quá mệt mỏi, một cái hiện đại người ở cổ đại như thế nào có thể đua đến quá người ta bản địa dân bản xứ a? Còn khoa cử khảo thí? Biết khoa cử khảo thí nhiều ít nói trạm kiểm soát sao? Khảo thí đều khảo cái gì sao?</p>
+<p>Liền cái bát cổ văn cũng không biết viết như thế nào hiện đại người, vừa đi cổ đại liền khoa cử, đầu nước vào đi?</p>
+<p>Còn có kia cổ đại ngôn tình tiểu thuyết, thoát thai tự nữ phò mã…… Điểm này càng làm cho Triệu Nhân Hà phun tào, cổ đại khoa cử vào cửa liền phải soát người được chứ!</p>
+<p>Ngươi một cái nữ, dám để cho hai cái nam nhân ở trên người của ngươi sờ loạn? Đừng nói cổ đại, hiện đại cũng chịu không nổi cái này a.</p>
+<p>Còn có, quần áo đều là muốn cởi ra kiểm tra, đừng nói trước ngực bọc mảnh vải, ngươi chính là bọc da trâu, cũng vô dụng!</p>
+<p>Nghe nói nghiêm trọng thời điểm, thậm chí liền lỗ đít nhi đều phải moi một chút…… Cổ đại nhân vi thi đậu công danh, gian lận là nhất thường thấy, vì công danh, chuyện gì nhi đều làm được.</p>
+<p>Mà kiểm tra các binh lính, vì kiểm tra ra một cái gian lận thư sinh, cũng là bất cứ giá nào, bởi vì nghe nói bọn họ kiểm tra ra tới một cái, có khen thưởng tới.</p>
+<p>Dù sao là vì thăng quan phát tài, cũng là liều mạng!</p>
+<p>Thói quen tính phát ngốc, sau đó liền bắt đầu phát ra tư duy, nửa ngày mới nhúc nhích một chút, đi rửa mặt, trở về ngồi xong, ai, vẫn là trước đem nhân thiết đều lấp đầy hảo.</p>
+<p>Nhân vật lên sân khấu tuổi tác, tính cách giả thiết, cùng với kế tiếp một ít quan trọng tình tiết, xung đột, cùng với phát huy hiệu quả, tác dụng, thậm chí là kết cục, hết thảy đều giả thiết hảo, hắn cũng buồn ngủ, nhìn nhìn thời gian, lại qua 12 giờ, chạy nhanh tắt máy, sau đó đi rửa mặt đánh răng một phen, nằm ở mềm mại trong ổ chăn, nhắm hai mắt lại.</p>
+<p>Hắn giấc ngủ luôn luôn thực hảo, vừa cảm giác đến hừng đông…… Nhưng là…… Vì cái gì như vậy hắc?</p>
+<p>Bên ngoài còn có thể nghe được nữ nhân kêu lên đau đớn thanh âm…… Hắn trong phòng như thế nào sẽ có nữ nhân? Hắn ngủ trước đã đem cửa khóa trái, đây là hắn thói quen, không khóa trái nói, hắn một người trụ, sẽ sợ hãi!</p>
+<p>Tổng cảm thấy sẽ có người tiến vào, cho nên mỗi lần ngủ trước cuối cùng một chuyện, chính là đi kiểm tra khoá cửa.</p>
+<p>Lại cảm giác được phảng phất có người ở đẩy hắn, mơ mơ hồ hồ, hắn liền theo lực đạo ra bên ngoài…… Tễ!</p>
+<p>Nữ nhân đau hô thanh, cùng với lực lượng đè ép, làm hắn thuận lợi thông qua một khối hắc ám địa phương, nghênh đón…… Một cái tát.</p>
+<p>“Ai đánh ta?” Cảm giác hẳn là mông nơi đó, đây chính là Triệu Nhân Hà kiêng kỵ chi nhất, chính mình mông ở đâu sao có thể tùy tiện làm người sờ đâu?</p>
+<p>Kết quả truyền ra tới lại là trẻ con non nớt “Oa” tiếng khóc.</p>
+<p>Tiếng khóc rất là vang dội, bởi vì Triệu Nhân Hà đang muốn chửi ầm lên.</p>
+<p>Nhị tiến sân dãy nhà sau, dựa phía tây hai gian nhà cửa, ra vào hai cái thô sử bà tử, bưng hai đại bồn nước ấm, đã vẩn đục nước ấm bị đảo tiến nước bẩn thùng, tự nhiên có mặt khác hai cái thô sử bà tử xách đi ra ngoài đảo rớt.</p>
+<p>Lại có hai cái tương đối sạch sẽ thể diện bà tử, bưng hai đại bồn sạch sẽ nước ấm đi vào, cửa một tiểu nha đầu vội vã thẳng dậm chân, nhưng là lại không giúp được gì.</p>
+<p>Này dãy nhà sau có một minh một ám hai cái phòng, là cái phòng suite.</p>
+<p>Gian ngoài là cái tiểu phòng khách, phòng trong là phòng ngủ.</p>
+<p>Một tiếng trẻ con khóc nỉ non tiếng vang lên, tất cả mọi người nhẹ nhàng thở ra, lộ ra tươi cười.</p>
+<p>Trong phòng ngủ, một mảnh hỗn độn, một cổ tử huyết tinh khí.</p>
+<p>Trên giường nằm một cái thấm mồ hôi nữ nhân, tóc đều bị ướt đẫm mồ hôi, mắt trông mong nhìn một cái tuổi già nữ nhân ôm tiểu tã lót “Hài tử?”</p>
+<p>“Chúc mừng di nãi nãi, chúc mừng di nãi nãi, là cái nam hài nhi!” Tuổi già nữ nhân là cái bà mụ, tay nghề thuần thục, đem hài tử rửa sạch sẽ liền dùng mềm mại tã lót gói kỹ lưỡng, đặt ở sản mép giường “Đứa nhỏ này tiếng khóc đại liệt! Tiểu thân mình rất là khỏe mạnh, nhất định có thể bình an lớn lên.”</p>
+<p>“Hảo, hảo!” Nữ nhân toàn thân sức lực đều dùng xong rồi, liền hôn đã ngủ.</p>
+<p>Tự có các bà tử tiến vào thu thập, mặt khác đem người nâng lên tới, thay đổi đệm giường gối đầu chờ vật, lại có tiểu nha đầu tiến vào, dùng sạch sẽ khăn lông, cấp nữ nhân sát ướt dầm dề tóc, sau đó dùng lược bí chải vuốt sạch sẽ, biên thành tóc bím.</p>
+<p>Có người qua lại đi lại, nhanh chóng rửa sạch phòng ngủ, lại có bà mụ, dùng sạch sẽ chiếc đũa, điểm một chút rượu, ở trẻ con ngoài miệng điểm một chút, xem như mở miệng.</p>
+<p>“Oa!” Đây là cái gì hương vị a? Là rượu sao?</p>
+<p>Triệu Nhân Hà trong lòng phát khổ, nhắm mắt lại liền biết gào khan.</p>
+<p>Không có biện pháp, hắn hiện tại thành hai cái em bé, vẫn là cái mới sinh ra em bé, hắn cũng không biết muốn như thế nào đối mặt chuyện này.</p>
+<p>Ngay từ đầu tưởng nằm mơ, kết quả bị người đánh thí thí, oa oa khóc lớn, thanh âm nhưng chân thật.</p>
+<p>Hiện tại lại bị người điểm rượu, đã mở miệng…… Dựa theo quy củ, nam hài nhi là dùng rượu click mở khẩu, nữ hài nhi còn lại là dùng nước muối.</p>
+<p>Bởi vì nam nhân trưởng thành đến uống rượu, dùng rượu click mở khẩu, tương lai ngàn ly không say.</p>
+<p>Nữ hài nhi dùng nước muối click mở khẩu, là bởi vì nữ nhân yêu cầu nấu nướng, tương lai trù nghệ hảo.</p>
+<p>Kỳ thật chính là thảo cái hảo điềm có tiền mà thôi.</p>
+<p>“Chính là đói bụng?” Lúc này, tiến vào một cái thiếu phụ màng dạng người, nữ nhân này sạch sẽ bộ dáng, quy quy củ củ đứng ở nơi đó, nhưng thật ra vẻ mặt thành thật tướng.</p>
+<p>“Là đói bụng, ngươi ôm qua đi uy nãi đi.” Bà mụ là biết nữ nhân này, đã sớm chọn tốt bà vú.</p>
+<p>“Ai!” Thiếu phụ tiến lên, đem hài tử tay chân nhẹ nhàng nhận lấy, ôm trên giường bên cạnh nhỏ hẹp giường bích sa, uy nổi lên nãi.</p>
+<p>Không có biện pháp, nơi này địa phương tiểu, chỉ có này có cái che đậy địa phương.</p>
+<p>Nơi này giường bích sa, là một loại cùng loại với trong nhà cửa gỗ đồ vật, đem một gian phòng cách thành hai cái phòng nhỏ, từ nhiều phiến tấm bình phong câu đối hai bên cửa thành nhất thể, nhưng ngày thường không mở ra, chỉ chừa trung gian hai phiến có thể chốt mở, ở chốt mở cánh cửa mặt ngoài trang có mành giá, cánh cửa mở ra khi nhưng quải mành. Mà nơi này nhà ở phần lớn tinh tế nhỏ xinh, hoặc là không làm ngăn cách, hoặc là dùng Đa Bảo Các hoặc là hoa tráo làm ngăn cách.</p>
+<p>Nói trắng ra là, giường bích sa, kỳ thật chính là cổ đại lâm thời thay quần áo địa phương, nơi này giường bích sa, địa phương không lớn, miễn cưỡng có thể đứng hạ ba năm cá nhân, có một thêu mai lan cúc trúc bốn phiến bình phong che lấp.</p>
+<p>Triệu Nhân Hà thực không muốn ăn nãi, nhưng là không có cách nào, hắn đói nha!</p>
+<p>Như vậy điểm em bé, không ăn nãi ăn cái gì đi?</p>
+<p>Hạ quyết tâm, nhắm mắt lại, ăn đi!</p>
+<p>Dùng sức bọc nãi, bà vú còn có chút cao hứng “Tiểu hài nhi miệng tráng, có sức lực.”</p>
+<p>Cách bình phong, bà mụ cũng cao hứng một ít “Vậy là tốt rồi, vậy là tốt rồi.”</p>
+<p>Chờ trong phòng thu thập sạch sẽ, nhóm người này liền đều đi rồi, lưu lại bà vú một cái, tiểu nha đầu một cái, cùng với hai cái thô sử bà tử ở ngoài cửa chờ phân phó, những người khác liền đều đi trở về.</p>
+<p>Này nho nhỏ một góc dãy nhà sau lập tức liền an tĩnh xuống dưới, cách vách dãy nhà sau, có nữ tử thăm dò tới xem, phát hiện người đều đi rồi, không khỏi phun một tiếng, liền về phòng đi, không trở ra.</p>
+<p>Nhưng thật ra này dãy nhà sau đằng trước nhị tiến chính phòng, một cái thiếu phụ vừa lúc ngủ trưa lên, mới vừa uống lên một trản trà lạnh thanh khẩu, liền có một tá giả nhanh nhẹn chỉnh tề bà tử vào tới “Thiếu nãi nãi.”</p>
+<p>“Thế nào?” Kia thiếu phụ đem chung trà phóng tới trên bàn trà, có đại nha hoàn lại đây, ngồi xổm trên mặt đất đem giày cho nàng mặc ở trên chân “Sinh cái cái gì ngoạn ý nhi?”</p>
+<p>“Phía sau kia đánh cá, sinh cái nam hài nhi, trọng tam cân sáu lượng chín tiền, tiếng khóc vang dội, bà mụ nói, là cái có thể nuôi lớn.” Bà tử thấp giọng nói “Chúc mừng ngài.”</p>
+<p>“Ân, không tồi, chúng ta tam thiếu gia hiện giờ có ba trai một gái, cũng coi như là khai chi tán diệp.” Thiếu phụ nhìn dáng vẻ vui vẻ một ít “Người tới, mặc quần áo trang điểm, ta muốn đích thân đi cho mẫu thân báo tin vui, hiện giờ nàng lại nhiều một cái tôn nhi.”</p>
+<p>“Là, thiếu nãi nãi.” Bà tử thấu đi lên, ân cần hầu hạ “Muốn nô tỳ nói a, vẫn là thiếu nãi nãi ngài rộng lượng, nhưng không giống kia khởi tử đố phụ, liền đàn ông trong phòng người đều dung không dưới, còn tiểu thư khuê các đâu? Đều không bằng nô tỳ gia con dâu, nô tỳ gia đại nhi tử, đều đệ tam phòng tiểu thiếp, con dâu cả còn không phải cười tủm tỉm uống lên trà.”</p>
+<p>“Ngươi nhi tử đều có đệ tam phòng tiểu thiếp?” Thiếu phụ vui vẻ “Ta nhưng cho tới bây giờ không biết, nô tài còn có thể nạp thiếp?”</p>
+<p>“Ngài liền nghe như vậy một nhạc, nô tỳ chính là như vậy vừa nói, cái gì tiểu thiếp a? Còn không phải nô tài cây non khuê nữ, lên không được mặt bàn, cũng liền xứng cấp nô tỳ nhi tử như vậy, môn đăng hộ đối sao!” Bà tử thấu thú nói “Môn không đăng hộ không đối, chỉ có thể đương cái thiếp, nô tỳ nhi tử chính là người hầu, con dâu là này trong phủ người hầu, đến nỗi kia hai tiểu thiếp, bên ngoài mua tới văn tự bán đứt người mà thôi.”</p>
+<p>“Nhà các ngươi sự tình, ta cũng lười đến hỏi đến, chỉ là đừng quá quá mức, đàng hoàng nữ tử chạm vào không được, hiểu sao?” Thiếu phụ tuổi còn trẻ, lại rất có uy nghiêm “Khác không nói, chỉ là lấy tiện khinh lương, các ngươi cả nhà phải ăn không hết gói đem đi.”</p>
+<p>“Đó là, đó là!” Bà tử cúi đầu khom lưng “Điểm này đạo lý, nô tỳ minh bạch, minh bạch.”</p>
+<p>Tại đây trong phủ làm việc, ai dám càn rỡ?</p>
+<p>Không bị sống sờ sờ đánh chết mới là lạ đâu.</p>
+<p>“Đi thôi, đi đằng trước bái kiến thế tử phi đi.” Thiếu phụ trang điểm hảo, liền đứng lên.</p>
+<p>Nhưng thấy nàng thân xuyên mật hợp hồ lô song hỉ văn khắp nơi kim áo ngoài, uốn lượn phết đất chính hồng đế lốc xoáy văn váy, thân khoác nguyệt bạch đế gấm vóc mỏng yên sa.</p>
+<p>Đen nhánh tỏa sáng tóc, đầu búi phi thiên búi tóc, tóc mây cắm khảm đỏ sậm viên châu ngọc Urani, da như ngưng chi trên tay mang một cái kim nạm trân châu lắc tay, eo hệ phê sắc châu tuyến tua eo phong, mặt trên treo một cái liên thanh đế trăm điệp xuyên hoa gấm vóc túi thơm, trên chân xuyên chính là đỏ thẫm đế bảo tương hoa văn đụn mây giày, cả người đã trang trọng lại mỹ lệ, đặc biệt là này một thân màu đỏ quần áo, đại biểu chính thất thân phận.</p>
+<p>Đương nàng bán ra ngạch cửa thời điểm, phía sau đi theo hai cái đại nha hoàn đi theo, hai cái đại nha hoàn lưu lại giữ nhà, có khác bốn cái tiểu nha hoàn đi theo đi, hai cái tiểu nha hoàn tiến vào lấy nước trong dùng giẻ lau lau nhà, lại có hai cái bà tử hai cái vú già đi theo.</p>
+<p>Tổng cộng mười cái người, xuyên phòng mà qua, từ trước đầu khoanh tay hành lang nơi đó, ra cửa chính, thẳng đến chính viện mà đi.</p>
+<p>------------Y---------------</p>
+
+<!-- ===== NAV DƯỚI: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG ===== -->
+<div class="nav">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      
+      <a class="back-link" href="chuong2.html">⏭ Chương sau</a>
+</div>
+  </main>
+<!-- ================= BOOKMARK ================= -->
+<script>
+const NOVEL_ID = "binh-nam-vuong-phu-bang-nam-ki";
+const NOVEL_TITLE = "Bình Nam Vương phủ bằng nam ký";
+const CHAPTER_TITLE = "Chương 0 Tiết tử";
+const btn = document.getElementById("bookmarkBtn");
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem("bookmarks")) || {};
+}
+function isBookmarked() {
+  return !!getBookmarks()[NOVEL_ID];
+}
+function updateButton() {
+  const marked = isBookmarked();
+  btn.textContent = marked ? "✅ Đã kẹp" : "📌 Kẹp sách";
+  btn.classList.toggle("active", marked);
+}
+function toggleBookmark() {
+  const bookmarks = getBookmarks();
+  if (bookmarks[NOVEL_ID]) {
+    delete bookmarks[NOVEL_ID];
+    alert("❌ Đã bỏ kẹp sách");
+  } else {
+    bookmarks[NOVEL_ID] = {
+      novelTitle: NOVEL_TITLE,
+      chapterTitle: CHAPTER_TITLE,
+      url: location.href,
+      time: Date.now()
+    };
+    alert("📌 Đã lưu chương đang đọc");
+  }
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  updateButton();
+}
+updateButton();
+btn.addEventListener("click", toggleBookmark);
+</script>
+<!-- ================= HEADER SHRINK ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     HEADER SHRINK + PADDING
+  ========================== */
+
+  const fixedHeader = document.querySelector(".fixed-top");
+  const main = document.querySelector("main");
+
+  function adjustMainPadding() {
+    if (!fixedHeader || !main) return;
+    main.style.paddingTop = fixedHeader.offsetHeight + 20 + "px";
+  }
+
+  function handleHeaderShrink() {
+    if (!fixedHeader) return;
+    fixedHeader.classList.toggle("shrink", window.scrollY > 80);
+    adjustMainPadding();
+  }
+
+  window.addEventListener("scroll", handleHeaderShrink);
+  window.addEventListener("resize", adjustMainPadding);
+  adjustMainPadding();
+
+
+  /* =========================
+     SIDEBAR THƯ VIỆN (TRÁI)
+  ========================== */
+
+  const sidebar = document.getElementById("librarySidebar");
+  const overlay = document.getElementById("overlay");
+  const storyList = document.getElementById("storyList");
+  const searchInput = document.getElementById("searchInput");
+
+  function toggleLibrary() {
+    if (!sidebar || !overlay) return;
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+
+  window.toggleLibrary = toggleLibrary;
+
+  let storiesData = [];
+
+  fetch("../../../stories.json")
+    .then(res => res.json())
+    .then(data => {
+      storiesData = data;
+      renderStories(data);
+    })
+    .catch(err => console.error("Lỗi load stories.json:", err));
+
+  function renderStories(data) {
+    if (!storyList) return;
+
+    storyList.innerHTML = "";
+
+    const pathParts = window.location.pathname.split("/");
+    const currentSlug = pathParts[2];
+
+    data.forEach((story, index) => {
+      const li = document.createElement("li");
+      li.style.animationDelay = `${Math.min(index * 0.03, 0.3)}s`;
+
+      const a = document.createElement("a");
+      a.href = `/web-doc-truyen/stories/${story.slug}/`;
+      a.textContent = `${story.title} (${story.chapters} chương)`;
+
+      if (story.slug === currentSlug) {
+        a.style.background = "#e0e7ff";
+      }
+
+      li.appendChild(a);
+      storyList.appendChild(li);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      const filtered = storiesData.filter(story =>
+        story.title.toLowerCase().includes(keyword)
+      );
+      renderStories(filtered);
+    });
+  }
+
+
+  /* =========================
+     SIDEBAR MỤC LỤC CHƯƠNG (PHẢI)
+  ========================== */
+
+  const chapterSidebar = document.getElementById("chapterSidebar");
+  const chapterOverlay = document.getElementById("chapterOverlay");
+  const chapterList = document.getElementById("chapterList");
+
+  function toggleChapterMenu() {
+    if (!chapterSidebar || !chapterOverlay) return;
+    chapterSidebar.classList.toggle("active");
+    chapterOverlay.classList.toggle("active");
+  }
+
+  window.toggleChapterMenu = toggleChapterMenu;
+
+  if (chapterList) {
+    fetch("../index.html")
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const toc = doc.querySelector(".content ul");
+        if (!toc) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        toc.querySelectorAll("li").forEach(li => {
+          const a = li.querySelector("a");
+          if (!a) return;
+
+          let href = a.getAttribute("href");
+
+          if (href.startsWith("chapter/")) {
+            href = href.replace("chapter/", "");
+          }
+
+          const newLi = document.createElement("li");
+          const newA = document.createElement("a");
+
+          newA.href = href;
+          newA.textContent = a.textContent;
+
+          if (href === currentPage) {
+            newA.style.background = "#e0e7ff";
+          }
+
+          newLi.appendChild(newA);
+          chapterList.appendChild(newLi);
+        });
+      })
+      .catch(err => console.error("Không load được mục lục:", err));
+  }
+});
+</script>
+</body>
+</html>

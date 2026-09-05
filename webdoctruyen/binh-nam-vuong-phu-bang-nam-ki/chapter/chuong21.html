@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 20 biến hóa</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Style dùng chung -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="page-chapter">
+
+
+  <!-- ===== NÚT MỞ THƯ VIỆN (TRÁI) ===== -->
+  <div class="menu-toggle" onclick="toggleLibrary()">☰</div>
+
+  <div class="overlay" id="overlay" onclick="toggleLibrary()"></div>
+
+  <div class="library-sidebar" id="librarySidebar">
+    <div class="library-header">
+      📚 Thư viện
+      <span class="close-btn" onclick="toggleLibrary()">✕</span>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm truyện..." />
+    <ul id="storyList"></ul>
+  </div>
+
+
+  <!-- ===== NÚT MỞ MỤC LỤC (PHẢI) ===== -->
+  <div class="chapter-menu-toggle" onclick="toggleChapterMenu()">📑</div>
+
+  <div id="chapterOverlay" class="chapter-overlay" onclick="toggleChapterMenu()"></div>
+
+  <div id="chapterSidebar" class="chapter-sidebar">
+    <div class="chapter-sidebar-header">
+      📚 Mục lục
+      <span class="close-btn" onclick="toggleChapterMenu()">✕</span>
+    </div>
+
+    <ul id="chapterList"></ul>
+  </div>
+<!-- ================= HEADER ================= -->
+<div class="fixed-top">
+  <div class="fixed-inner page-chapter">
+
+    <!-- LEFT -->
+    <div class="top-left">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <button id="bookmarkBtn" class="back-link">📌 Kẹp sách</button>
+    </div>
+    <!-- CENTER -->
+    <div class="novel-header top-center">
+      <h1 class="novel-title">
+        Bình Nam Vương phủ bằng nam ký
+      </h1>
+      <div class="novel-meta">
+        <span>Chương 20 biến hóa</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG -->
+    <div class="top-right">
+      <a class="back-link" href="chuong20.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong22.html">⏭ Chương sau</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<main>
+<div class="content chapter-content">
+<p>“Ngài nói đúng, nhà ta năm đó nếu không phải không có tiền, sống không nổi, ta cũng sẽ không bán mình vào phủ đương bà vú…… Ta kia tiểu nữ nhi, cũng sống không được tới, năm đó ta a, sinh hai cái nữ nhi, đều bị ta kia nhẫn tâm bà bà cấp chết đuối, hiện tại cái này tiểu nữ nhi, cũng là ta sau lại cùng người nam nhân này sinh, ai…….” Bà vú Lý cũng là một khang nước đắng “Ngài nói rất có đạo lý, nếu là liền bụng đều điền không no, các nàng còn có cái gì sức lực suy nghĩ những cái đó lung tung rối loạn đâu?”</p>
+<p>Hai người lẫn nhau phun nước đắng, đảo cũng rất hợp phách.</p>
+<p>Chỉ là, Triệu Nhân Hà lại tưởng trợn trắng mắt, bởi vì hắn là bị di nãi nãi ôm, hắn ghé vào thân mụ bả vai trên đầu, thấy được sau cửa sổ nơi đó, một nữ nhân đỉnh đầu, kia nữ nhân sơ chính là cao chuy búi tóc.</p>
+<p>Búi tóc thượng cắm vàng ròng nạm bảo ánh sáng mặt trời năm phượng quải châu thoa, hai bên đè nặng tử ngọc thái dương trâm hoa, vật như vậy, chỉ có chính thất phu nhân mới có thể mang, cho dù là lão thái phi trước mặt nhất được sủng ái quản sự nương tử, cũng không có tư cách như vậy mang.</p>
+<p>Tử ngọc tóc bạc cái đê, càng là hiếm thấy sang quý trang sức.</p>
+<p>Này khoản cao chuy búi tóc giống nhau đều là quý phụ nhân mới có thể bàn kiểu tóc, vương phủ lễ giáo nghiêm ngặt, nếu phi tư chính thất phu nhân, tuyệt đối không dám sơ, cũng không có khả năng sơ như vậy búi tóc, bởi vì cái này búi tóc sẽ có vẻ đầu đại một vòng, mang như vậy sang quý đồ vật, phân lượng nhưng không nhẹ, không có phương tiện làm việc.</p>
+<p>Đây là tam thiếu nãi nãi đi?</p>
+<p>Triệu Nhân Hà cảm thấy mẹ ruột ở bà vú cố ý “Dạy dỗ” hạ, đã có trạch đấu tay mới trình độ.</p>
+<p>Quả nhiên, bên ngoài nghe lén chính là tam thiếu nãi nãi, nàng vốn là không nghĩ lại đây, nhưng là ra loại chuyện này, nàng bất quá tới nói một chút không thích hợp, hơn nữa đứa nhỏ này sinh đều sinh hạ tới, các nơi cũng đều đã biết có như vậy một người, nàng nếu là lại làm lơ đi xuống, nên là nàng không phải.</p>
+<p>Cho nên lại đây nhìn xem, không nghĩ tới nghe xong như vậy một đoạn đối thoại.</p>
+<p>Trong lòng khí rốt cuộc thuận một ít, cũng không đi vào, dù sao kia đánh cá đều thủ bổn phận, nàng còn có cái gì nhưng cùng nàng nói? Liền cứ như vậy đi.</p>
+<p>Cái này làm cho đi theo bên người nàng từng bà tử phi thường không vui, nàng còn tưởng ở di nãi nãi trước mặt nhi muốn cái cường, làm tam thiếu nãi nãi nhìn xem nàng bản lĩnh.</p>
+<p>Kết quả hiện tại tam thiếu nãi nãi đều không đi vào.</p>
+<p>Nàng còn có cái gì lý do đi vào véo tiêm muốn cường?</p>
+<p>Thất vọng chi tình, bộc lộ ra ngoài.</p>
+<p>Triệu Nhân Hà cho rằng đây là mẹ ruột ở cùng mẹ cả yếu thế, kết quả buổi tối hắn liền phát hiện, không phải như vậy hồi sự, bởi vì mẹ ruột là thật sự như vậy tưởng, mà mẹ cả cũng có qua có lại, bọn họ buổi tối đồ ăn, lập tức liền thượng một cái cấp bậc.</p>
+<p>Trước kia là bốn đồ ăn một canh, vốn dĩ tiểu thiếp là hai đồ ăn một canh.</p>
+<p>Đồ ăn là một huân một tố, canh liền tùy tiện, đôi khi, không được sủng ái tiểu thiếp kia canh đều là xoát nồi thủy.</p>
+<p>Mà di nãi nãi bởi vì còn muốn dưỡng hài tử, cho nên đồ ăn quy cách thượng liền đề ra bốn đồ ăn một canh, hai món chay hai món mặn, canh cũng là bổ dưỡng cái loại này, ngay cả bà vú Lý, mỗi ngày cơm canh đều là hữu ích nhũ mẫu đồ vật, mỗi ngày còn có một chung canh gà, canh cá, canh xương hầm từ từ huân canh uống.</p>
+<p>Chính là hôm nay cơm chiều, tuy rằng cũng là bốn đồ ăn một canh, nhưng lại là ba đạo món ăn mặn.</p>
+<p>Này đồ ăn cũng không hề là thịt đồ ăn nửa nọ nửa kia món ăn mặn, mà là thuần túy món ăn mặn.</p>
+<p>Một đạo hầm cá trích, một đạo tay xé muối hấp gà, một đạo bạch thiết lát thịt.</p>
+<p>Đều là ngạnh đồ ăn không nói, làm còn thanh đạm, phi thường thích hợp di nãi nãi ăn, còn không chậm trễ bú sữa.</p>
+<p>Một đạo thức ăn chay cũng là thanh xào cải thìa, hàm đạm vừa lúc.</p>
+<p>Nước canh còn lại là một sửa dĩ vãng ứng phó, làm chính là thông nhũ xuống sữa thông gà mái canh.</p>
+<p>Ngay cả bà vú Lý đồ ăn, cũng cải thiện không ít.</p>
+<p>Xem Triệu Nhân Hà mắt to tử tích lựu lựu chuyển Xem ra thân mụ này phiên biểu diễn, không có uổng phí a.</p>
+<p>Qua mấy ngày, đại nha hoàn Thúy nhi liền nói “Nghe nói là tam thiếu nãi nãi từ chính mình phân lệ, bát một đạo món ăn mặn, thế cho di nãi nãi một đạo thức ăn chay, mọi người đều khen ngợi tam thiếu nãi nãi hiền huệ, thật là đại phụ phong phạm.”</p>
+<p>Mọi người đều khen không dứt miệng, nói tam thiếu nãi nãi như vậy mới là đương gia chủ mẫu.</p>
+<p>Nhưng là lại qua một ngày, cùng Thúy nhi giống nhau là đại nha hoàn Hồng nhi liền đã trở lại “Đại thiếu nãi nãi bên kia, nghe nói hai ngày này, nát không ít chung trà tử, còn có một cái đại nha hoàn, bị đuổi ra ngoài xứng tiểu tử.”</p>
+<p>------------DFY---------------</p>
+
+<!-- ===== NAV DƯỚI: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG ===== -->
+<div class="nav">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <a class="back-link" href="chuong20.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong22.html">⏭ Chương sau</a>
+</div>
+  </main>
+<!-- ================= BOOKMARK ================= -->
+<script>
+const NOVEL_ID = "binh-nam-vuong-phu-bang-nam-ki";
+const NOVEL_TITLE = "Bình Nam Vương phủ bằng nam ký";
+const CHAPTER_TITLE = "Chương 20 biến hóa";
+const btn = document.getElementById("bookmarkBtn");
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem("bookmarks")) || {};
+}
+function isBookmarked() {
+  return !!getBookmarks()[NOVEL_ID];
+}
+function updateButton() {
+  const marked = isBookmarked();
+  btn.textContent = marked ? "✅ Đã kẹp" : "📌 Kẹp sách";
+  btn.classList.toggle("active", marked);
+}
+function toggleBookmark() {
+  const bookmarks = getBookmarks();
+  if (bookmarks[NOVEL_ID]) {
+    delete bookmarks[NOVEL_ID];
+    alert("❌ Đã bỏ kẹp sách");
+  } else {
+    bookmarks[NOVEL_ID] = {
+      novelTitle: NOVEL_TITLE,
+      chapterTitle: CHAPTER_TITLE,
+      url: location.href,
+      time: Date.now()
+    };
+    alert("📌 Đã lưu chương đang đọc");
+  }
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  updateButton();
+}
+updateButton();
+btn.addEventListener("click", toggleBookmark);
+</script>
+<!-- ================= HEADER SHRINK ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     HEADER SHRINK + PADDING
+  ========================== */
+
+  const fixedHeader = document.querySelector(".fixed-top");
+  const main = document.querySelector("main");
+
+  function adjustMainPadding() {
+    if (!fixedHeader || !main) return;
+    main.style.paddingTop = fixedHeader.offsetHeight + 20 + "px";
+  }
+
+  function handleHeaderShrink() {
+    if (!fixedHeader) return;
+    fixedHeader.classList.toggle("shrink", window.scrollY > 80);
+    adjustMainPadding();
+  }
+
+  window.addEventListener("scroll", handleHeaderShrink);
+  window.addEventListener("resize", adjustMainPadding);
+  adjustMainPadding();
+
+
+  /* =========================
+     SIDEBAR THƯ VIỆN (TRÁI)
+  ========================== */
+
+  const sidebar = document.getElementById("librarySidebar");
+  const overlay = document.getElementById("overlay");
+  const storyList = document.getElementById("storyList");
+  const searchInput = document.getElementById("searchInput");
+
+  function toggleLibrary() {
+    if (!sidebar || !overlay) return;
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+
+  window.toggleLibrary = toggleLibrary;
+
+  let storiesData = [];
+
+  fetch("../../../stories.json")
+    .then(res => res.json())
+    .then(data => {
+      storiesData = data;
+      renderStories(data);
+    })
+    .catch(err => console.error("Lỗi load stories.json:", err));
+
+  function renderStories(data) {
+    if (!storyList) return;
+
+    storyList.innerHTML = "";
+
+    const pathParts = window.location.pathname.split("/");
+    const currentSlug = pathParts[2];
+
+    data.forEach((story, index) => {
+      const li = document.createElement("li");
+      li.style.animationDelay = `${Math.min(index * 0.03, 0.3)}s`;
+
+      const a = document.createElement("a");
+      a.href = `/web-doc-truyen/stories/${story.slug}/`;
+      a.textContent = `${story.title} (${story.chapters} chương)`;
+
+      if (story.slug === currentSlug) {
+        a.style.background = "#e0e7ff";
+      }
+
+      li.appendChild(a);
+      storyList.appendChild(li);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      const filtered = storiesData.filter(story =>
+        story.title.toLowerCase().includes(keyword)
+      );
+      renderStories(filtered);
+    });
+  }
+
+
+  /* =========================
+     SIDEBAR MỤC LỤC CHƯƠNG (PHẢI)
+  ========================== */
+
+  const chapterSidebar = document.getElementById("chapterSidebar");
+  const chapterOverlay = document.getElementById("chapterOverlay");
+  const chapterList = document.getElementById("chapterList");
+
+  function toggleChapterMenu() {
+    if (!chapterSidebar || !chapterOverlay) return;
+    chapterSidebar.classList.toggle("active");
+    chapterOverlay.classList.toggle("active");
+  }
+
+  window.toggleChapterMenu = toggleChapterMenu;
+
+  if (chapterList) {
+    fetch("../index.html")
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const toc = doc.querySelector(".content ul");
+        if (!toc) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        toc.querySelectorAll("li").forEach(li => {
+          const a = li.querySelector("a");
+          if (!a) return;
+
+          let href = a.getAttribute("href");
+
+          if (href.startsWith("chapter/")) {
+            href = href.replace("chapter/", "");
+          }
+
+          const newLi = document.createElement("li");
+          const newA = document.createElement("a");
+
+          newA.href = href;
+          newA.textContent = a.textContent;
+
+          if (href === currentPage) {
+            newA.style.background = "#e0e7ff";
+          }
+
+          newLi.appendChild(newA);
+          chapterList.appendChild(newLi);
+        });
+      })
+      .catch(err => console.error("Không load được mục lục:", err));
+  }
+});
+</script>
+</body>
+</html>

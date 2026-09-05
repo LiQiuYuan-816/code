@@ -1,59 +1,52 @@
 load('config.js');
 
-function execute() {
+function execute(url) {
     try {
-        let pageUrl = arguments[0] || "";
-        if (!pageUrl) return Response.error("⚠️ Không có link truyện");
-
-        let res = fetch(pageUrl);
-        if (!res.ok) return Response.error("⚠️ Không tải được trang: " + res.status);
-
-        let html = res.text().toString(); // Dùng .text() đảm bảo tương thích
-
-        // === TÊN TRUYỆN ===
-        let name = "Truyện";
-        let nameMatch = html.match(/class=["']novel-title["'][^>]*>([\s\S]*?)<\/h1>/i);
-        if (nameMatch) {
-            name = nameMatch[1].replace(/<[^>]+>/g, "").trim() || "Truyện";
-        }
+        let res = fetch(url);
+        if (!res.ok) return Response.error("Lỗi tải trang: " + res.status);
+        
+        let doc = res.html();
+        if (!doc) return Response.error("Không phân tích được HTML");
 
         // === BASE URL ===
-        // VD: https://liqiuyuan-816.github.io/web-doc-truyen/stories/ten-truyen/
-        let baseUrl = pageUrl.substring(0, pageUrl.lastIndexOf("/") + 1);
-
-        // === LẤY DANH SÁCH CHƯƠNG ===
-        // Khớp đúng dạng: <li><a href="chapter/ten.html">Tên chương</a></li>
+        let baseUrl = url.substring(0, url.lastIndexOf("/") + 1);
         let chapters = [];
-        let liPattern = /<li>\s*<a\s+href=["'](chapter\/[^"']+\.html)["']>([\s\S]*?)<\/a>\s*<\/li>/gi;
-        let liMatch;
 
-        while ((liMatch = liPattern.exec(html)) !== null) {
-            let chapHref = liMatch[1];
-            let chapTitle = liMatch[2].replace(/<[^>]+>/g, "").trim();
+        // ✅ Selector ĐÚNG chuẩn JSoup — KHÔNG có dấu ngoặc kép
+        let links = doc.select("ul li a[href^=chapter/]");
 
-            // Bỏ các link điều hướng không phải chương
-            if (chapTitle && !/Trước|Sau|Mục lục|Trang chủ|Tiếp theo/i.test(chapTitle)) {
-                let chapUrl = baseUrl + chapHref;
+        // Nếu không tìm thấy → thử selector rộng hơn
+        if (links.size() === 0) {
+            links = doc.select("a[href^=chapter/]");
+        }
+
+        // === Duyệt & Lọc ===
+        for (let i = 0; i < links.size(); i++) {
+            let a = links.get(i);
+            let href = a.attr("href");
+            let title = a.text().trim();
+
+            if (href 
+                && href.endsWith(".html")
+                && title
+                && !/Trước|Sau|Mục lục|Trang chủ|Tiếp theo/i.test(title)) {
+                
                 chapters.push({
-                    name: chapTitle,
-                    url: chapUrl
+                    name: title,
+                    url: baseUrl + href
                 });
             }
         }
 
-        // Kiểm tra kết quả
+        // === ✅ TRẢ VỀ ĐÚNG ĐỊNH DẠNG VBOOK ===
         if (chapters.length === 0) {
-            return Response.error("⚠️ Không tìm thấy danh sách chương dạng chapter/*.html");
+            return Response.error("Không tìm thấy chương nào");
         }
-
-        return Response.success({
-            name: name,
-            baseUrl: baseUrl,
-            totalChapters: chapters.length,
-            chapters: chapters
-        });
+        
+        // ⚠️ CHỈ trả về mảng trực tiếp — KHÔNG bọc thêm đối tượng!
+        return Response.success(chapters);
 
     } catch (err) {
-        return Response.error("⚠️ Lỗi xử lý: " + err.message);
+        return Response.error("Lỗi: " + err.message);
     }
 }

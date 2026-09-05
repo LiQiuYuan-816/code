@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 165 ta tương lai</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Style dùng chung -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="page-chapter">
+
+
+  <!-- ===== NÚT MỞ THƯ VIỆN (TRÁI) ===== -->
+  <div class="menu-toggle" onclick="toggleLibrary()">☰</div>
+
+  <div class="overlay" id="overlay" onclick="toggleLibrary()"></div>
+
+  <div class="library-sidebar" id="librarySidebar">
+    <div class="library-header">
+      📚 Thư viện
+      <span class="close-btn" onclick="toggleLibrary()">✕</span>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm truyện..." />
+    <ul id="storyList"></ul>
+  </div>
+
+
+  <!-- ===== NÚT MỞ MỤC LỤC (PHẢI) ===== -->
+  <div class="chapter-menu-toggle" onclick="toggleChapterMenu()">📑</div>
+
+  <div id="chapterOverlay" class="chapter-overlay" onclick="toggleChapterMenu()"></div>
+
+  <div id="chapterSidebar" class="chapter-sidebar">
+    <div class="chapter-sidebar-header">
+      📚 Mục lục
+      <span class="close-btn" onclick="toggleChapterMenu()">✕</span>
+    </div>
+
+    <ul id="chapterList"></ul>
+  </div>
+<!-- ================= HEADER ================= -->
+<div class="fixed-top">
+  <div class="fixed-inner page-chapter">
+
+    <!-- LEFT -->
+    <div class="top-left">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <button id="bookmarkBtn" class="back-link">📌 Kẹp sách</button>
+    </div>
+    <!-- CENTER -->
+    <div class="novel-header top-center">
+      <h1 class="novel-title">
+        Bình Nam Vương phủ bằng nam ký
+      </h1>
+      <div class="novel-meta">
+        <span>Chương 165 ta tương lai</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG -->
+    <div class="top-right">
+      <a class="back-link" href="chuong165.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong167.html">⏭ Chương sau</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<main>
+<div class="content chapter-content">
+<p>“Ngươi cùng con mẹ ngươi bán mình khế ở ta nương nơi đó, chờ đến một ngày kia ta rời đi kia trong phủ, lại mang ra tới không muộn.” Triệu Nhân Hà nói “Ta chưa bao giờ đem ngươi cùng bà vú cho rằng người ngoài.”</p>
+<p>“Ta biết.” Hà Đại Căn nhếch miệng “Ta chính là có chút không cam lòng mà thôi.”</p>
+<p>“Yên tâm, sớm muộn gì thoát ly kia phủ.” Triệu Nhân Hà vỗ vỗ bờ vai của hắn “Ngày sau đem bà vú cũng tiếp ra tới, đến lúc đó, không cần làm người nô tỳ, ngươi hảo hảo hiếu kính nàng lão nhân gia.”</p>
+<p>“Ngươi liền bất hiếu kính?” Hà Đại Căn mắt lé xem Triệu Nhân Hà.</p>
+<p>“Ta đương nhiên cũng hiếu kính, nhưng là nãi nhi tử không bằng thân sinh nhi tử hiếu kính, làm nàng vui vẻ sao!” Triệu Nhân Hà một nhún vai “Ta cũng muốn cho ta nương vui vẻ, ta mẹ ruột.”</p>
+<p>“Hảo hảo, biết hai người các ngươi có nương, vẫn là mẹ ruột, cái này về sau lại luận, trước nói nói, chuyện của ta.” Tống đại ngàn đánh gãy hai người bọn họ nhàm chán đối thoại “Ta lại không phải tú tài, khả năng làm ta đi giáo bọn nhỏ đọc sách?”</p>
+<p>“Này không phải có hộ tịch sao? Hôm nào đi khảo một cái là được.” Triệu Nhân Hà nói “Ta nói kia tư thục còn không có cái bóng dáng đâu!”</p>
+<p>Hắn cố ý cho hắn cữu cữu quy hoạch một cái hảo kiên cố thật lớn tư thục.</p>
+<p>Dùng vật liệu gỗ a, vật liệu đá a, mái ngói a, đều phải tốt nhất, thả địa điểm tuyển cũng thực không tồi, mặt khác xét thấy bọn họ nơi đó mỗi quá cái mười mấy 20 năm liền có hải tặc a, hải tặc lên bờ cướp bóc, cho nên phải cho trong thôn kiến hảo tường vây còn không tính, còn phải có cái tị nạn chỗ, làm người ngoài một chốc một lát công không phá được, tư thục liền rất hảo, ngày thường địa phương đại bọn nhỏ cũng chạy động khai, một khi gặp được nguy hiểm, toàn thôn người đều có thể trốn vào đi, cho nên xây dựng lên liền phải kiên cố vô cùng, hải tặc hải tặc lên bờ là sẽ không mang dư thừa đồ vật, bọn họ liền một bộ quần áo một cây đao, hoặc là một phen kiếm linh tinh vũ khí hạng nhẹ, vũ khí hạng nặng cũng liền cá biệt người rìu.</p>
+<p>Hắn muốn kiên cố liền công thành khí giới một chốc đều đánh không phá địa phương.</p>
+<p>Có thể phòng được kẻ cắp là được.</p>
+<p>Huống chi bình nam thuỷ quân đại doanh liền ở gần đây, chỉ cần kiên trì đến thuỷ quân tới, những cái đó người xấu tự nhiên liền bỏ chạy, nếu không phải lưu lại cấp nước quân đại doanh người đổ đầy quân công.</p>
+<p>Dù sao không cần hắn tiêu tiền, hắn cữu cữu chiến lợi phẩm nhưng không thiếu vớt, nhà mình không dùng được, tồn lại làm thượng quan đỏ mắt, chỉ sợ có một ngày sẽ bị người nhớ thương thượng, không bằng đều trợ cấp cấp cháu ngoại, thả đại doanh đều biết, hắn có cái muội tử ở Bình Nam vương phủ làm thiếp, rất là được sủng ái, lại có một cái cháu ngoại thực tiền đồ, hắn đương tiện nghi cữu cữu cấp một chút trợ cấp, thực bình thường.</p>
+<p>Như vậy thượng quan lại có kiêng kỵ, tự nhiên sẽ không đối hắn có cái gì tâm tư.</p>
+<p>Đương nhiên, dù sao cái này tiêu dùng cũng không nhiều lắm, đối với một cái mang binh đánh giặc tướng quân tới nói, chiến lợi phẩm không cần quá phong phú, thả phía trên lại có thêm vào ban thưởng, Hải Phúc Long lên làm đãng khấu tướng quân thời điểm, triều đình liền thưởng hắn 500 lượng bạc.</p>
+<p>Xuyên qua tiền bối ở tiền tài mặt trên thực bỏ được tiêu dùng, quan văn liền lương cao dưỡng liêm, võ tướng liền phong phú tiền thưởng.</p>
+<p>Thả võ tướng chiến lợi phẩm, thế nhưng là cùng hoàng gia tam thất phân!</p>
+<p>Là hoàng gia, không phải triều đình, thả hoàng gia chỉ cần tam, đương nhiên, này tam là các loại thứ tốt, tỷ như long nhãn lớn nhỏ kim trân châu, vậy không phải cá nhân có thể giữ lại chiến lợi phẩm, thế tất muốn thượng cống cấp hoàng gia, ngoạn ý nhi này phẩm cấp thấp nhân gia là không thể dùng, cất chứa đều thuộc về du chế.</p>
+<p>Chỉ có hoàng đế mũ thượng, mới có thể khảm ngoạn ý nhi này, hoặc là Hoàng hậu mũ phượng thượng.</p>
+<p>Bảy là về tướng quân, đương nhiên, này bảy dặm đầu, cũng không đều là tướng quân, còn có thủ hạ người đâu.</p>
+<p>Giống nhau đều là phi thường tục khí vàng bạc châu báu, bọn lính chỉ thích tiền, càng tục khí càng tốt, những cái đó châu báu chướng mắt, kim quả tử bạc quả tử miễn cưỡng cấp điểm áp đáy hòm là được, bó lớn bó lớn đồng tiền, mới là bọn họ yêu nhất.</p>
+<p>Này đó đều là Triệu Nhân Hà từ cữu cữu nơi đó nghe tới, cùng với hai cái võ sư phụ nói trong quân nhàn thoại.</p>
+<p>“Vì vậy, kia tư thục ít nhất cái cái một vài năm, ngươi thành thật học tập đọc sách, đãi ta có thể khoa cử, chúng ta cũng hảo cùng đi!” Triệu Nhân Hà chống nạnh, hào khí can vân nói “Chúng ta từ đây bay ra tường cao, xông lên không trung lạp!”</p>
+<p>“Lời này nói rất đúng không văn hóa.” Lại bị người ghét bỏ “Phải nói chúng ta cùng nhau đại bàng giương cánh nhậm bay lượn, như diều gặp gió chín vạn dặm!”</p>
+<p>Mọi người cười vang một thời gian lúc sau, an tĩnh xuống dưới, lúc ban đầu sáu cái tiểu thiếu niên, hiện giờ đã là thanh thiếu niên, trầm mặc một chút sau, Hầu Đại Bảo sờ sờ đầu “Đời này cũng chưa nghĩ tới, còn có thể thi khoa cử, ta cho rằng chúng ta đọc sách biết chữ, cường thân luyện võ, là vì bảo hộ thiếu gia.”</p>
+<p>“Chẳng lẽ các ngươi ngày sau liền không bảo vệ ta? Ta chính là các ngươi bên trong nhỏ nhất cái kia!” Triệu Nhân Hà nhe răng “Ta mang các ngươi ra tới, chính là không nghĩ cho các ngươi đương cả đời hạ nhân, các ngươi đều là ta tỉ mỉ bồi dưỡng lên nhân tài, không phải nô tài!”</p>
+<p>Mọi người cảm động đến một tháp hồ đồ, Triệu Nhân Hà lại nói “Các ngươi cùng ta nhiều năm như vậy, cũng nhìn ra được tới đi? Ta này không phải giống nhau tiểu hài tử.”</p>
+<p>Mọi người vừa nghe, sôi nổi gật đầu, cũng báo lấy thiện ý cười vang.</p>
+<p>Triệu Nhân Hà xoa xoa cái mũi “Không ngoài ý muốn, không ngoài ý muốn ha!”</p>
+<p>Mọi người lại cười sau một lúc lâu, mới thu liễm ý cười.</p>
+<p>“Ta sao, nếu là chính mình ngoi đầu nói, không nói liền chúng ta tam phòng vị kia thái thái, chính là vương phi nương nương chỉ sợ đều phải đối ta kiêng kỵ thật sâu, ta chính là con vợ lẽ con vợ lẽ, ta mẹ nó thành cái tôn tử!”</p>
+<p>Hỉ phong các nàng mấy nữ hài tử, phụt một tiếng, lại bật cười.</p>
+<p>“Đây là sự thật!” Triệu Nhân Hà một buông tay “Ta ra vẻ đáng thương trang mẹ nó 12 năm, kháng chiến mới đánh tám năm.”</p>
+<p>Mọi người không quá minh bạch hắn nói chính là có ý tứ gì.</p>
+<p>Đơn giản hắn tiếp tục nói “Không trang ta sống không nổi, các ngươi cũng biết, mới vừa cùng cửu điện hạ có điểm tử kia như có như không giao tình, mẹ cả liền dám để cho ta trường bệnh thuỷ đậu, nếu là thật trở nên nổi bật, bảo đảm ta chết so với ai khác đều mau!”</p>
+<p>Mọi người gật đầu, đây là tình hình thực tế, bọn họ đều xem ở trong mắt.</p>
+<p>“Cho nên, ta không thể một người xuất đầu, muốn toát ra tới, chúng ta cùng nhau, người nhiều, ta liền không thấy được, dù cho ta là nhất thấy được cái kia, không phải còn có các ngươi bồi ta sao?” Triệu Nhân Hà cười xấu xa nói “Huynh đệ tỷ muội nhóm, chúng ta là một cái Team!”</p>
+<p>“Thiếu gia, chúng ta là một đám, Team là cái gì?” Hà Đại Căn giơ lên tay “Thế ai tìm lão mẫu?”</p>
+<p>“Câm miệng!” Triệu Nhân Hà cái này khí a “Đây là ngoại quốc lời nói.”</p>
+<p>“Thiếu gia còn sẽ ngoại quốc lời nói?”</p>
+<p>“Nước nào?”</p>
+<p>“Ta biết phía đông có Đông Doanh, phía bắc có Cao Ly.”</p>
+<p>“Nghe nói hải ngoại có kia quỷ dương quốc gia, các tóc vàng mắt xanh, còn có tóc đỏ người.”</p>
+<p>“Đây là đoàn đội ý tứ!” Triệu Nhân Hà gõ gõ cái bàn “Team là tiếng Anh, đoàn đội ý tứ, là từ cơ sở cùng quản lý tầng nhân viên tạo thành một cái thể cộng đồng, nó hợp lý lợi dụng mỗi một cái thành viên tri thức cùng kỹ năng hợp tác công tác, giải quyết vấn đề, đạt tới cộng đồng mục tiêu. Đoàn đội cấu thành yếu tố tổng kết vì năm, phân biệt vì mục tiêu, người, định vị, quyền hạn, kế hoạch. Đoàn đội cùng quần thể có căn bản tính một ít khác nhau, quần thể có thể hướng đoàn đội quá độ. Nói tóm lại, đoàn đội chính là từ hai cái hoặc là hai cái trở lên, hỗ trợ lẫn nhau, lẫn nhau ỷ lại thân thể, vì riêng mục tiêu mà dựa theo nhất định quy tắc kết hợp ở bên nhau tổ chức.”</p>
+<p>“Chúng ta đây đoàn đội tên gọi là gì đâu?” Đinh mạnh mẽ gãi gãi đầu “Thư thượng nói, danh bất chính tắc ngôn không thuận, chúng ta tổng phải có cái tên, ngày sau cũng hảo hành sự.”</p>
+<p>“Không tồi.” Tống đại ngàn đã kích động qua, lúc này tâm bình khí hòa lúc sau, tưởng liền càng nhiều “Còn có người thân phận, chúng ta dễ làm, đều là nam hài tử, đỉnh môn lập hộ sinh hoạt không thành vấn đề, đáng mừng phong các nàng nữ hài tử liền có chút…… Trừ phi gả chồng thời điểm, cấp cái đàng hoàng nữ tử thân phận.”</p>
+<p>“Cấp cái gì đàng hoàng nữ tử thân phận tái giá người? Một cái tỳ nữ như thế nào có thể có hảo hôn sự? Thả kia hôn phu nhà chồng cũng tất nhiên biết, các nàng đều là nô tỳ xuất thân.” Triệu Nhân Hà không tán đồng “Trực tiếp lập cái nữ hộ càng tốt, nam nhân có thể đỉnh môn lập hộ, nữ tử liền không được sao? Chúng ta tỷ muội, hà tất ủy khuất các nàng? Chính là đàng hoàng nữ tử, nữ hộ làm sao vậy? Nữ tử có bản lĩnh, có đồng ruộng gia sản, chính mình đương gia làm chủ, nếu là coi trọng cái gì nam nhân liền đuổi theo, đuổi theo thành thân sinh hoạt, tự do yêu đương tới hôn nhân, tổng so manh hôn ách gả tới hảo, thả tuổi nhỏ, không nên thành hôn, như thế nào cũng muốn qua 18 tuổi, bằng không sinh hài tử có nguy hiểm, hài tử thân thể cũng không tốt.”</p>
+<p>Mọi người cứng họng, trước nay không nghĩ tới, thiếu gia còn biết này đó.</p>
+<p>Quả nhiên là “Thư trung tự hữu nhan như ngọc, thư trung tự hữu hoàng kim ốc” a!</p>
+<p>“Chướng mắt liền chính mình tự do sinh hoạt, tổng so gả chồng sau, bởi vì xuất thân vấn đề, cụp mi rũ mắt cho người ta đương không cần tiền đại nha hoàn, vú già, hầu hạ cả gia đình người còn không rơi một chút chỗ tốt.” Triệu Nhân Hà lại nói “Nếu không tìm cái tới cửa con rể, sinh hài tử cùng chính mình họ, gia nghiệp chính mình nắm giữ!”</p>
+<p>Bồi dưỡng mấy cái cổ đại nữ cường nhân, cũng không tồi.</p>
+<p>“Ngươi như thế nào sẽ có ý nghĩ như vậy?” Hỉ đan các nàng một đám nha hoàn đều nghe trợn tròn mắt.</p>
+<p>“Ta từ nhỏ xem ta mẹ ruột sinh hoạt, quá nghẹn khuất!” Triệu Nhân Hà lau mặt, khoa tay múa chân một chút “Ta là từ nhỏ bị nhốt ở trong phủ đầu, trưởng thành lần đầu ra cửa, liền nhìn cái gì đều mới mẻ, hồi phủ qua một đêm ta đều cảm thấy bị đè nén, một lần ta liền chơi dã, thả chỉ về quê nhìn xem, kiêm tới phủ thành đọc sách mà thôi, ta nương khi còn nhỏ tự do tản mạn, ở trên bờ cát phong chạy, ở núi rừng gian chơi đùa, nhiều tự do a? Kết quả vừa vào phủ môn, liền chính là nghẹn mười mấy năm, nhiều nhất chính là cùng thái thái các nương nương đi ra cửa phía đông đạo quan, phía tây chùa chiền, dâng hương lập đàn làm phép, ha ha cơm chay, liền tính là ra cửa thông khí, một đường đều là buồn ở bên trong kiệu, hoặc là trên xe ngựa. Quá ngày mấy đâu?”</p>
+<p>Mấy ngày nay, mọi người ở bên ngoài cũng chơi dã, chơi vui vẻ, nếu là lại trở lại trong vương phủ đi, thật là không thoải mái.</p>
+<p>Nhưng tưởng tượng đến, Triệu Nhân Hà mẹ đẻ, Hải phu nhân bị buồn ở trong phủ đầu mười mấy năm…… Bọn nha hoàn các đều run lập cập “Chúng ta nghe thiếu gia!”</p>
+<p>Đều không nghĩ quá như vậy nhật tử.</p>
+<p>Thả các nàng bị bán là lúc, nếu không phải Triệu Nhân Hà toàn bộ nhận lấy, không chừng còn muốn lưu lạc đến phương nào đi, tương lai là bộ dáng gì đâu.</p>
+<p>“Oai lâu a!” Lưu đại trụ vỗ vỗ cái bàn “Đề tài xả trở về, chúng ta đoàn đội gọi là gì? Tổng không thể kêu thế mẫu đi? Nghe tới như là cho người ta đương mẹ kế.”</p>
+<p>“Có mẹ kế liền có cha kế!” Hầu Đại Bảo ở một bên lười nhác nói một câu.</p>
+<p>Bị Tống đại ngàn trừng mắt nhìn liếc mắt một cái, lập tức bãi chính tư thái nói “Chúng ta tôn chỉ là cái gì? Lại nói cái thích hợp tên bái.”</p>
+<p>“Chúng ta tương lai không phải mộng.” Triệu Nhân Hà đề ra một cái phi thường có hậu hiện đại hóa tên, tự giác khá tốt.</p>
+<p>“Cái gì lung tung rối loạn a? Như vậy trường?”</p>
+<p>“Nói lên cũng không có gì khí thế.”</p>
+<p>“Chính là!”</p>
+<p>Vì thế, tên này bị các bạn nhỏ nhất trí phủ quyết!</p>
+<p>Triệu Nhân Hà bất đắc dĩ “Vậy các ngươi nói, gọi là gì thích hợp?”</p>
+<p>“Đại hiệp tổ hợp?”</p>
+<p>“Thủy Hử giúp?”</p>
+<p>“Chúng ta ven biển, liền kêu biển rộng giúp!”</p>
+<p>“Nghe tới như là cái bang phái tên.”</p>
+<p>“Kêu tụ nghĩa?”</p>
+<p>“Như là thổ phỉ sơn trại.”</p>
+<p>Một đám người mồm năm miệng mười không một cái thích hợp, thả càng thêm lệch khỏi quỹ đạo chủ đề, khí Triệu Nhân Hà chụp cái bàn “Các ngươi đều từ chỗ nào nghe tới này đó lung tung rối loạn đồ vật? Ta không giảng cho các ngươi nghe a?”</p>
+<p>“Ngươi về quê thời điểm, chúng ta đi theo hai vị sư phụ đi bên ngoài chơi vài thiên, nghe diễn, nghe Bình thư, còn có xem xiếc ảo thuật, nhưng đã ghiền.”</p>
+<p>Trên thực tế, bọn họ còn đi các nơi điều nghiên địa hình nhi, quen thuộc đất, liền không nói cho hắn.</p>
+<p>Nhưng là này cũng đủ làm Triệu Nhân Hà hâm mộ “Chờ ta nghỉ tắm gội, ta cũng đi ra ngoài chơi, mỗi lần nghỉ tắm gội đều đi ra ngoài chơi!”</p>
+<p>“Trước đừng nói chơi không chơi sự tình, tên của chúng ta còn không có tưởng hảo.” Nhìn thấy một đám người nói chuyện luôn là bắt không được trọng điểm, Tống đại ngàn không khỏi tới khí “Nhanh lên, trong chốc lát buổi tối hôm đó, rửa mặt đánh răng sau tắt đèn lên giường ngủ đi, ngày mai còn còn có rất nhiều chuyện muốn làm đâu!”</p>
+<p>Vì thế mọi người bắt đầu nghẹn dùng sức tưởng tên…….</p>
+<p>Công tác thuận lợi a! Thứ hai……</p>
+<p>------------DFY---------------</p>
+
+<!-- ===== NAV DƯỚI: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG ===== -->
+<div class="nav">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <a class="back-link" href="chuong165.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong167.html">⏭ Chương sau</a>
+</div>
+  </main>
+<!-- ================= BOOKMARK ================= -->
+<script>
+const NOVEL_ID = "binh-nam-vuong-phu-bang-nam-ki";
+const NOVEL_TITLE = "Bình Nam Vương phủ bằng nam ký";
+const CHAPTER_TITLE = "Chương 165 ta tương lai";
+const btn = document.getElementById("bookmarkBtn");
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem("bookmarks")) || {};
+}
+function isBookmarked() {
+  return !!getBookmarks()[NOVEL_ID];
+}
+function updateButton() {
+  const marked = isBookmarked();
+  btn.textContent = marked ? "✅ Đã kẹp" : "📌 Kẹp sách";
+  btn.classList.toggle("active", marked);
+}
+function toggleBookmark() {
+  const bookmarks = getBookmarks();
+  if (bookmarks[NOVEL_ID]) {
+    delete bookmarks[NOVEL_ID];
+    alert("❌ Đã bỏ kẹp sách");
+  } else {
+    bookmarks[NOVEL_ID] = {
+      novelTitle: NOVEL_TITLE,
+      chapterTitle: CHAPTER_TITLE,
+      url: location.href,
+      time: Date.now()
+    };
+    alert("📌 Đã lưu chương đang đọc");
+  }
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  updateButton();
+}
+updateButton();
+btn.addEventListener("click", toggleBookmark);
+</script>
+<!-- ================= HEADER SHRINK ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     HEADER SHRINK + PADDING
+  ========================== */
+
+  const fixedHeader = document.querySelector(".fixed-top");
+  const main = document.querySelector("main");
+
+  function adjustMainPadding() {
+    if (!fixedHeader || !main) return;
+    main.style.paddingTop = fixedHeader.offsetHeight + 20 + "px";
+  }
+
+  function handleHeaderShrink() {
+    if (!fixedHeader) return;
+    fixedHeader.classList.toggle("shrink", window.scrollY > 80);
+    adjustMainPadding();
+  }
+
+  window.addEventListener("scroll", handleHeaderShrink);
+  window.addEventListener("resize", adjustMainPadding);
+  adjustMainPadding();
+
+
+  /* =========================
+     SIDEBAR THƯ VIỆN (TRÁI)
+  ========================== */
+
+  const sidebar = document.getElementById("librarySidebar");
+  const overlay = document.getElementById("overlay");
+  const storyList = document.getElementById("storyList");
+  const searchInput = document.getElementById("searchInput");
+
+  function toggleLibrary() {
+    if (!sidebar || !overlay) return;
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+
+  window.toggleLibrary = toggleLibrary;
+
+  let storiesData = [];
+
+  fetch("../../../stories.json")
+    .then(res => res.json())
+    .then(data => {
+      storiesData = data;
+      renderStories(data);
+    })
+    .catch(err => console.error("Lỗi load stories.json:", err));
+
+  function renderStories(data) {
+    if (!storyList) return;
+
+    storyList.innerHTML = "";
+
+    const pathParts = window.location.pathname.split("/");
+    const currentSlug = pathParts[2];
+
+    data.forEach((story, index) => {
+      const li = document.createElement("li");
+      li.style.animationDelay = `${Math.min(index * 0.03, 0.3)}s`;
+
+      const a = document.createElement("a");
+      a.href = `/web-doc-truyen/stories/${story.slug}/`;
+      a.textContent = `${story.title} (${story.chapters} chương)`;
+
+      if (story.slug === currentSlug) {
+        a.style.background = "#e0e7ff";
+      }
+
+      li.appendChild(a);
+      storyList.appendChild(li);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      const filtered = storiesData.filter(story =>
+        story.title.toLowerCase().includes(keyword)
+      );
+      renderStories(filtered);
+    });
+  }
+
+
+  /* =========================
+     SIDEBAR MỤC LỤC CHƯƠNG (PHẢI)
+  ========================== */
+
+  const chapterSidebar = document.getElementById("chapterSidebar");
+  const chapterOverlay = document.getElementById("chapterOverlay");
+  const chapterList = document.getElementById("chapterList");
+
+  function toggleChapterMenu() {
+    if (!chapterSidebar || !chapterOverlay) return;
+    chapterSidebar.classList.toggle("active");
+    chapterOverlay.classList.toggle("active");
+  }
+
+  window.toggleChapterMenu = toggleChapterMenu;
+
+  if (chapterList) {
+    fetch("../index.html")
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const toc = doc.querySelector(".content ul");
+        if (!toc) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        toc.querySelectorAll("li").forEach(li => {
+          const a = li.querySelector("a");
+          if (!a) return;
+
+          let href = a.getAttribute("href");
+
+          if (href.startsWith("chapter/")) {
+            href = href.replace("chapter/", "");
+          }
+
+          const newLi = document.createElement("li");
+          const newA = document.createElement("a");
+
+          newA.href = href;
+          newA.textContent = a.textContent;
+
+          if (href === currentPage) {
+            newA.style.background = "#e0e7ff";
+          }
+
+          newLi.appendChild(newA);
+          chapterList.appendChild(newLi);
+        });
+      })
+      .catch(err => console.error("Không load được mục lục:", err));
+  }
+});
+</script>
+</body>
+</html>

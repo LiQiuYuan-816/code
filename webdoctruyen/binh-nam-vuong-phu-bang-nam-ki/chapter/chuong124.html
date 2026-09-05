@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 123 tiểu cháu ngoại không đơn giản</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Style dùng chung -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="page-chapter">
+
+
+  <!-- ===== NÚT MỞ THƯ VIỆN (TRÁI) ===== -->
+  <div class="menu-toggle" onclick="toggleLibrary()">☰</div>
+
+  <div class="overlay" id="overlay" onclick="toggleLibrary()"></div>
+
+  <div class="library-sidebar" id="librarySidebar">
+    <div class="library-header">
+      📚 Thư viện
+      <span class="close-btn" onclick="toggleLibrary()">✕</span>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm truyện..." />
+    <ul id="storyList"></ul>
+  </div>
+
+
+  <!-- ===== NÚT MỞ MỤC LỤC (PHẢI) ===== -->
+  <div class="chapter-menu-toggle" onclick="toggleChapterMenu()">📑</div>
+
+  <div id="chapterOverlay" class="chapter-overlay" onclick="toggleChapterMenu()"></div>
+
+  <div id="chapterSidebar" class="chapter-sidebar">
+    <div class="chapter-sidebar-header">
+      📚 Mục lục
+      <span class="close-btn" onclick="toggleChapterMenu()">✕</span>
+    </div>
+
+    <ul id="chapterList"></ul>
+  </div>
+<!-- ================= HEADER ================= -->
+<div class="fixed-top">
+  <div class="fixed-inner page-chapter">
+
+    <!-- LEFT -->
+    <div class="top-left">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <button id="bookmarkBtn" class="back-link">📌 Kẹp sách</button>
+    </div>
+    <!-- CENTER -->
+    <div class="novel-header top-center">
+      <h1 class="novel-title">
+        Bình Nam Vương phủ bằng nam ký
+      </h1>
+      <div class="novel-meta">
+        <span>Chương 123 tiểu cháu ngoại không đơn giản</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG -->
+    <div class="top-right">
+      <a class="back-link" href="chuong123.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong125.html">⏭ Chương sau</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<main>
+<div class="content chapter-content">
+<p>“Ta không cùng ngươi nhiều lời, chỉ cấp mấy cái tiểu nhi vỡ lòng cũng đủ, mặt khác mặc kệ, ở ngươi nơi này đãi cái hai năm, ta còn phải đi ta nhi tử nơi đó, nếu không phải ta luyến tiếc ta kia đường huynh, mới sẽ không tới ngươi nơi này hỗn nhật tử.” Triệu hưng lão gia tử rất có bộ tịch.</p>
+<p>“Đó là, đó là! Ai cũng luyến tiếc đường bá phụ, nhưng là không có chính là không có, người già rồi, tóm lại là muốn lá rụng về cội.” Triệu Hi Y đối lão già này thực tôn trọng, còn giới thiệu Triệu Nhân Hà cho hắn nhận thức “Đây là ta kia tiểu nhi tử, bởi vì chuyết kinh không cẩn thận, đứa nhỏ này bảy tuổi còn không có chính thức vỡ lòng nhập học, thả có hiếu trong người, chỉ phải ở chỗ này tạm thời thỉnh ngài lão cấp vỡ lòng.”</p>
+<p>“Triệu Hà gặp qua thúc thái gia gia.” Triệu Nhân Hà còn có chút sợ lão đầu nhi, không phải sợ hắn đánh người, mà là sợ hắn tuổi tác quá lớn, nếu như bị chính mình khí một hơi thượng không tới, kia hắn nhưng thảm.</p>
+<p>“Ngoan a, tiểu hài tử không tồi, ngươi kia tức phụ nhi ta cũng không nói, ngươi hảo hảo tu một chút nội vây.” Triệu hưng lão nhân này nói chuyện không lưu khẩu đức “Này con vợ lẽ đều so ngươi tiền đồ.”</p>
+<p>“Là, là!” Triệu Hi Y vui vẻ “Ta nhi tử so với ta tiền đồ, chất nhi hẳn là cao hứng mới đúng.”</p>
+<p>Triệu hưng thấy Triệu Hi Y quy củ lễ nghĩa cũng không thiếu, liền ở xuống dưới, ngày đầu tiên không làm gì, chính là thu thập đồ vật.</p>
+<p>Ngày hôm sau lão đầu nhi dùng một ngày thời gian xem chính mình giảng bài chỗ.</p>
+<p>Ngày thứ ba mới xem học sinh.</p>
+<p>Triệu Nhân Hà ưỡn ngực thiển bụng mang theo chính mình 12 tháng, cùng với sáu cái thiếu niên, đứng ở lão đầu nhi trước mặt “Này đó đều là bồi chất tôn đi học người, ngài lão phí tâm.”</p>
+<p>“Ân, ta hiểu được, như vậy đi, trước tới bái kiến đến thánh tiên sư.” Triệu hưng là một cái thực cũ kỹ cổ giả, ngày đầu tiên không có cấp Triệu Nhân Hà bọn họ đi học, mà là mang theo bọn họ cấp đến thánh tiên sư Khổng Tử giống, hành lễ tế bái một phen, sau đó là á thánh Mạnh Tử giống, lại là một phen tế bái.</p>
+<p>Bái một chúng tiểu hài nhi vựng đầu trướng não.</p>
+<p>Cuối cùng mới hỏi bọn họ, đều học chút cái gì?</p>
+<p>“300 ngàn đều học qua, tự nhận được không sai biệt lắm.” Triệu Nhân Hà nói “Còn có hiếu kinh cũng sẽ ngâm nga.”</p>
+<p>Nhưng thật ra chưa nói tinh tế nghiên cứu quá loại này lời nói.</p>
+<p>Triệu hưng sờ sờ chòm râu, nói cho Triệu Nhân Hà một cái kinh người sự thật.</p>
+<p>Nhập học tuổi tác đại khái ở sáu bảy tuổi, Triệu Nhân Hà đã là xe móc đuôi.</p>
+<p>Bắt đầu học chính là vỡ lòng biết chữ giáo dục, ước một vài năm kết thúc.</p>
+<p>Sau đó là đọc sách giáo dục, ước ba bốn năm, tại đây trong lúc muốn đi học đường, cùng người cùng nhau đi học mới được.</p>
+<p>Sau đó là viết văn giáo dục, ước năm đến tám năm, tại đây trong lúc muốn quen thuộc sở hữu kinh điển, hơn nữa lựa chọn một môn khóa ngoại kỹ năng, đó chính là 《 quân tử lục nghệ 》!</p>
+<p>Cuối cùng là bát cổ văn, bởi vì đây là tham gia khoa cử khảo thí tất dùng nội dung.</p>
+<p>Như vậy thêm thêm giảm giảm xuống dưới, 30 tuổi phía trước có thể thi đậu tiến sĩ đều là mũi nhọn sinh!</p>
+<p>Cho nên nói, Triệu Hi Y có thể ở 30 phía trước trúng tiến sĩ, ở Bình Nam vương trong phủ đều là số được với hào, nếu không phải Bình Nam vương phủ một hai phải làm hắn tiến vào trong quân đảm nhiệm chức quan, hắn thật là có khả năng ở văn thần trên đường, đi so người khác sớm một ít.</p>
+<p>“Ta cấp nhĩ chờ vỡ lòng, liền định ra hai năm chi ước, hai năm vừa đến, ra hiếu lúc sau, ta liền rời đi chỗ này, các ngươi muốn quý trọng học tập thời gian.” Lão đầu nhi vuốt râu, lời nói thấm thía nói “Ta biết đại trạch nội sinh tồn cũng không dễ dàng như vậy, nếu hà thiếu gia nói muốn các ngươi đi theo cùng nhau đi học, đó chính là cho các ngươi cơ hội, hảo hảo học, ngày sau hưởng thụ vô cùng.”</p>
+<p>“Là!” Mặc kệ lớn nhỏ, bọn nhỏ đều tất cung tất kính hành lễ.</p>
+<p>Đây là lão đầu nhi mới vừa dạy dỗ bọn họ như thế nào hành lễ học tập hạ, từng cái đều dùng tư thế này đã lạy đến thánh á thánh, ngày sau bọn họ liền phải học tập đạo Khổng Mạnh.</p>
+<p>Tuy rằng học quá 300 ngàn, nhưng là lão đầu nhi vẫn là từ đầu dạy dỗ.</p>
+<p>Có lão đầu nhi dạy dỗ, cùng bà vú Lý còn không giống nhau, lão đầu nhi sẽ cho bọn họ đem trong đó ý tứ nói rõ, bà vú Lý lúc ấy chỉ là đại khái nói một chút, không có kỹ càng tỉ mỉ giảng quá.</p>
+<p>Học xong 《 Tam Tự Kinh 》 lúc sau a, Triệu Nhân Hà cữu cữu liền tới xem bọn họ, bởi vì quá mấy ngày chính là Tết Trung Thu, hắn vị này cữu cữu mang theo một con ngựa xe đồ vật, được xưng là đưa cho muội tử cùng hắn đại cháu ngoại quà tặng trong ngày lễ.</p>
+<p>Vừa lúc kia một ngày, học đường nghỉ ngơi, lão đầu nhi quy định, mỗi một tuần, có một ngày nghỉ ngơi, chính là mỗi tháng 10 ngày, hai mươi ngày cùng 30 ngày.</p>
+<p>Nghe nói triều đình quan viên cũng là như thế nghỉ tắm gội.</p>
+<p>Mà ngày này, thân cữu cữu tới, Triệu Nhân Hà chạy nhanh phái người nghênh tiến vào “Cữu cữu!”</p>
+<p>Triệu Nhân Hà nhào qua đi, ôm cữu cữu…… Đùi, hắn thân cao không đủ, vốn dĩ muốn ôm eo tới.</p>
+<p>Nhìn ra hắn này cữu cữu thân cao ít nhất hai mét, cường tráng, rắn chắc, trách không được hắn có thể ở trong chiến đấu sống sót, còn có thể tích cóp nhiều như vậy quân công, làm chính mình lên chức, lấy một cái ngư dân tiểu tử xuất thân, có thể lên làm bát phẩm tổng kỳ.</p>
+<p>“Ai!” Hải Phúc Long một tay đem cháu ngoại ôm lên “Lần trước tới vội vàng, cũng chưa cho ngươi cùng ngươi nương mang đồ vật, quá mấy ngày chính là trung thu, cho ngươi hai mang điểm hảo ngoạn.”</p>
+<p>“Cữu cữu.” Triệu Nhân Hà bò ở bên tai hắn nhỏ giọng nói “Chúng ta trong lén lút kêu có thể, nhưng là đừng bị người ngoài nghe được, quy củ không tốt, sẽ bị phạt. Ta đều là trộm mà kêu ta di nương làm nương, người ngoài trước mặt đều kêu di nương, đến nay không có bị phát hiện!”</p>
+<p>Hải Phúc Long ánh mắt thâm thúy nhìn thoáng qua trong lòng ngực cười xấu xa cháu ngoại “Phải không?”</p>
+<p>Thâm trạch hậu viện điểm này sự tình, mấy ngày nay hắn cũng tận lực hỏi thăm, tuy rằng một đại nam nhân hỏi thăm những việc này có chút làm người xem không hiểu, nhưng là hắn lý do cũng thực đầy đủ, muốn tìm cái tức phụ nhi, đương nhiên muốn nhiều mặt tìm hiểu, huống chi hắn thủ hạ cũng có thám báo, hỏi thăm một chút tiểu đạo tin tức, vẫn là có thể, này không, hắn liền minh bạch rất nhiều.</p>
+<p>Càng biết muội tử không dễ dàng.</p>
+<p>Một ít kiêng kỵ hắn cũng biết.</p>
+<p>Không nghĩ tới, cháu ngoại như vậy tiểu, lại là như vậy hiểu chuyện.</p>
+<p>Còn cùng hắn kề tai nói nhỏ, nho nhỏ một người nhi, khinh phiêu phiêu, khẳng định là bị chính thất phu nhân không thích, có lẽ còn có ăn không đủ no thời điểm.</p>
+<p>“Đúng vậy, về sau ta kêu ngài hải tổng kỳ, ngài kêu ta sông nhỏ là được.” Triệu Nhân Hà tiếp tục nói “Làm trò ta nương mặt cũng là như thế, không ai thời điểm, chúng ta ba cái, liền có thể thả lỏng, có người không thể được, trong phủ quy củ đại.”</p>
+<p>Hắn nhưng thật ra chưa nói, này trong phủ quy củ, chỉ có thể quản người trong phủ, hắn này thân cữu cữu rõ ràng không ở quy củ trong vòng.</p>
+<p>“Mỗ gia đã hiểu!” Hải Phúc Long một mở miệng liền có một cổ tử binh phỉ chi khí “Đi, đi vào xem ngươi…… Di nương.”</p>
+<p>Ôm đại cháu ngoại, vào này đống số 7 sân.</p>
+<p>Triệu Nhân Hà cái này tiểu viện tử ở đông bài thứ 7 hào.</p>
+<p>Hôm nay nghỉ tắm gội, Triệu hưng lão gia tử muốn đi bình nam thành thăm bạn, mang theo hạ nhân cưỡi chính mình xe con đi rồi, Hải di nương cùng Triệu Hi Y đánh so chiêu hô, lúc này mới mang theo nha hoàn bà tử thu thập thỏa đáng, tới tiền viện, nhi tử thứ 7 hào sân.</p>
+<p>Vừa mới ngồi xuống, đại ca cùng nhi tử liền cùng nhau vào được.</p>
+<p>“Đại ca!” Hải di nương lập tức liền đứng lên.</p>
+<p>“Được rồi, được rồi, ngươi ta huynh muội, khách khí như vậy làm gì?” Hải Phúc Long ôm đại cháu ngoại cười đến thấy răng không thấy mắt “Lập tức muốn ăn tết, ngày xưa luôn muốn, ăn tết thời điểm cũng cho ngươi mua điểm đồ vật, kết quả hiện tại tìm được ngươi, nhưng một chốc các ngươi nương hai nhi cũng ra không được, liền ở trong phủ đầu giữ đạo hiếu, ta liền đem đồ vật đưa tới, cho các ngươi hai giải giải buồn.”</p>
+<p>“Di nương.” Triệu Nhân Hà quy quy củ củ cấp di nương thỉnh an, sau đó liền rất tự quen thuộc oa ở thân cữu cữu trong lòng ngực.</p>
+<p>Hỉ mai trình lên danh mục quà tặng, cữu lão gia cấp lễ vật nhưng không nhẹ đâu.</p>
+<p>Hải di nương nhìn thoáng qua danh mục quà tặng, liền kinh ngạc “Ca, ngươi như thế nào?”</p>
+<p>“Đây là cho các ngươi hai, thu đi, ta cũng không có khả năng thường xuyên tiến vào xem các ngươi, nhà cao cửa rộng quy củ nhiều như lông trâu, không kiên nhẫn những cái đó.” Hải Phúc Long phất tay, đại khí nói “Muội tử, cấp ca làm một bữa cơm, hôm nay liền tại đây ăn cơm trưa, liền chúng ta ba cái.”</p>
+<p>Đã không có chướng mắt Triệu Hi Y, cùng với cái kia hồ mị tử hỉ lan, tự tại rất nhiều.</p>
+<p>“Hảo, hôm nay ta xuống bếp.” Hải di nương vui vẻ “Nhưng là chỉ có thể ăn chay, không có thịt.”</p>
+<p>“Trước kia hai chúng ta cũng không thịt ăn.” Hải Phúc Long vui vẻ “Đi thôi!”</p>
+<p>Triệu Nhân Hà cái này số 7 trong viện có cái phòng bếp nhỏ, có hai non nồi, vốn là thiêu nước ấm dùng, nhưng là cũng có thể làm một ít điểm tâm, Hải di nương lâm thời coi như phòng bếp làm bữa cơm.</p>
+<p>Lưu lại hai cậu cháu người ở trong phòng khách, Triệu Nhân Hà sáu cái thường tùy đã sớm rửa sạch hiện trường, đứng ở cửa thủ, mặt khác mười hai tháng tiểu hài tử, còn lại là ở cửa nơi đó nhìn như chơi đùa, kỳ thật là đang nhìn phong mà thôi, tiểu nha đầu nhóm thượng trà bánh lúc sau, liền đi sau bếp hỗ trợ.</p>
+<p>Hai cậu cháu tương đối mà ngồi, một cái uống trà, một cái ăn điểm tâm, sau một lúc lâu lúc sau, vẫn là Hải Phúc Long không nhịn xuống, đầu tiên đã mở miệng “Ngươi ăn ít điểm, ngươi nương trong chốc lát làm cơm, ngươi ăn không vô đi nàng nên cảm thấy ngươi ghét bỏ đồ ăn không thể ăn.”</p>
+<p>“Không có việc gì, ta ăn chút là được, buổi sáng không như thế nào ăn no, bởi vì thúc tổ phụ muốn đi thăm bạn, đưa hắn lão nhân gia tới cửa, ta liền đã trở lại.” Triệu Nhân Hà nuốt xuống trong miệng điểm tâm, cấp ôm chính mình bát trà, uống một ngụm bên trong hoa cỏ trà, hắn là tiểu hài tử, không nên uống trà, cho nên uống chính là hoa tươi chế thành hoa cỏ trà.</p>
+<p>“Hiện tại nơi này là ngươi sân? Ngươi không cùng ngươi nương trụ cùng nhau?” Hải Phúc Long tới liền đã nhìn ra nơi này về đại cháu ngoại.</p>
+<p>“Là, bất quá ta còn nhỏ, mười tuổi lúc sau mới có thể dọn ra tới.” Triệu Nhân Hà nói “Đại ca cùng nhị ca là con vợ cả, còn có một cái đại tỷ, ở hạ viện nơi đó trụ, đại ca nhị ca tại tiền viện nơi này cũng có cái như vậy sân, chẳng qua bọn họ ở thu viện nơi đó cũng có một cái cùng hàn lộ cư giống nhau sân làm hậu trạch, ta mẹ cả để lại cho nàng mấy đứa con trai địa bàn, nhưng là hàn lộ cư cho ta di nương trụ, phía sau còn có hai di nương mang theo hai muội muội.”</p>
+<p>“Cha ngươi rất có thể sinh a?” Hải Phúc Long sắc mặt khó coi, hắn như hoa như ngọc muội tử, cùng mấy người phụ nhân phân một người nam nhân.</p>
+<p>Nếu không phải vương phủ thế lực đại, hắn thật sự là đắc tội không nổi, đều có tân tưởng đem muội tử liên quan cháu ngoại đoạt lại đi.</p>
+<p>“Nam nhân sao, có quyền lợi thời điểm, liền dốc hết sức cho chính mình tìm nữ nhân sinh hài tử, bản năng mà thôi.” Triệu Nhân Hà vẻ mặt tiểu đại nhân biểu tình “Cữu cữu, ngươi có phải hay không hẳn là cho ta tìm cái mợ?”</p>
+<p>“Ngươi nương làm ngươi hỏi?” Hải Phúc Long cúi đầu uống trà “Ta như vậy có thể tìm cái cái gì nữ nhân?”</p>
+<p>“Dù sao không cần tìm họ Triệu là được.” Triệu Nhân Hà lại nói “Tốt nhất cũng không cần cùng Bình Nam vương phủ có bất luận cái gì liên quan nhân gia.”</p>
+<p>“Vì cái gì?” Hải Phúc Long sửng sốt.</p>
+<p>“Bởi vì nếu là có liên quan, ngày sau ngươi liền phải bị quản chế với người, thê tử nhà mẹ đẻ thế lực đại, ngươi còn có đương gia làm chủ thời điểm sao?” Triệu Nhân Hà vừa lật tiểu bạch nhãn nhi “Huống chi ta nương là cái tiểu thiếp, đối phương là chính thê, đến lúc đó tẩu tử có thể để mắt ta nương cái này đương tiểu thiếp cô em chồng?”</p>
+<p>“Nàng dám!” Hải Phúc Long nghịch lân chi nhất, chính là hải như hoa.</p>
+<p>“Tìm mợ sự tình ngài chính mình nhìn làm, hiện tại ta cùng ta nương ở trong phủ đầu còn có thể, giữ đạo hiếu đủ rồi ta là có thể đi học đường, có thể khảo công danh, đến lúc đó cũng có thể cho ta nương làm rạng rỡ thêm vinh dự.” Triệu Nhân Hà không có tiếp tục ăn điểm tâm, uống lên hai khẩu hoa cỏ trà liền không uống, bởi vì trong chốc lát muốn ăn cơm.</p>
+<p>“Ngươi xem khởi nhưng không giống như là cái sáu bảy tuổi tiểu nam hài nhi.” Hải Phúc Long là không nghĩ tới, này cháu ngoại người không lớn, khẩu khí cũng không nhỏ.</p>
+<p>Nói chuyện làm việc không giống cái tiểu hài tử.</p>
+<p>Cái này tiểu cháu ngoại nhưng không đơn giản a!</p>
+<p>“Nhà cao cửa rộng hài tử hiểu chuyện sớm.” Triệu Nhân Hà nói “Cữu cữu ở trong quân còn hảo?”</p>
+<p>“Như thế nào hỏi như vậy?” Hải Phúc Long tay một đốn “Đương nhiên là tốt.”</p>
+<p>“Nhưng không phải tốt nhất, đúng không?” Triệu Nhân Hà một buông tay “Nhà chúng ta không có gì chỗ dựa, chỉ là bình thường ngư dân mà thôi, ta nương tuy rằng ở vương phủ, nhưng một cái thiếp thất có thể làm gì đâu? Ta nhưng thật ra có thể cho ngài đương chỗ dựa, nhưng ta mới bảy tuổi, còn nhỏ điểm nhi.”</p>
+<p>“Kia cữu cữu chờ ngươi trưởng thành, chờ ngươi cấp cữu cữu đương chỗ dựa.” Hải Phúc Long vui tươi hớn hở nói “Ngươi thật sự thực thông minh, cữu cữu chợt một hồi tới, đương tổng binh còn hảo, rốt cuộc chúng ta thủ vệ thất tinh đảo lâu như vậy, phía trên đã quên chúng ta, tổng nên cấp điểm bồi thường.”</p>
+<p>Trang web đặt hàng a thân nhóm</p>
+<p>------------DFY---------------</p>
+
+<!-- ===== NAV DƯỚI: CHỈ HIỆN NÚT KHI CÓ CHƯƠNG ===== -->
+<div class="nav">
+      <a class="back-link" href="../index.html">📑 Mục lục</a>
+      <a class="back-link" href="../../../index.html">🏠 Trang chủ</a>
+      <a class="back-link" href="../../../thu-vien-ten/name-library.html">📖 Thư viện tên</a>
+      <a class="back-link" href="chuong123.html">⏮ Chương trước</a>
+      <a class="back-link" href="chuong125.html">⏭ Chương sau</a>
+</div>
+  </main>
+<!-- ================= BOOKMARK ================= -->
+<script>
+const NOVEL_ID = "binh-nam-vuong-phu-bang-nam-ki";
+const NOVEL_TITLE = "Bình Nam Vương phủ bằng nam ký";
+const CHAPTER_TITLE = "Chương 123 tiểu cháu ngoại không đơn giản";
+const btn = document.getElementById("bookmarkBtn");
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem("bookmarks")) || {};
+}
+function isBookmarked() {
+  return !!getBookmarks()[NOVEL_ID];
+}
+function updateButton() {
+  const marked = isBookmarked();
+  btn.textContent = marked ? "✅ Đã kẹp" : "📌 Kẹp sách";
+  btn.classList.toggle("active", marked);
+}
+function toggleBookmark() {
+  const bookmarks = getBookmarks();
+  if (bookmarks[NOVEL_ID]) {
+    delete bookmarks[NOVEL_ID];
+    alert("❌ Đã bỏ kẹp sách");
+  } else {
+    bookmarks[NOVEL_ID] = {
+      novelTitle: NOVEL_TITLE,
+      chapterTitle: CHAPTER_TITLE,
+      url: location.href,
+      time: Date.now()
+    };
+    alert("📌 Đã lưu chương đang đọc");
+  }
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  updateButton();
+}
+updateButton();
+btn.addEventListener("click", toggleBookmark);
+</script>
+<!-- ================= HEADER SHRINK ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     HEADER SHRINK + PADDING
+  ========================== */
+
+  const fixedHeader = document.querySelector(".fixed-top");
+  const main = document.querySelector("main");
+
+  function adjustMainPadding() {
+    if (!fixedHeader || !main) return;
+    main.style.paddingTop = fixedHeader.offsetHeight + 20 + "px";
+  }
+
+  function handleHeaderShrink() {
+    if (!fixedHeader) return;
+    fixedHeader.classList.toggle("shrink", window.scrollY > 80);
+    adjustMainPadding();
+  }
+
+  window.addEventListener("scroll", handleHeaderShrink);
+  window.addEventListener("resize", adjustMainPadding);
+  adjustMainPadding();
+
+
+  /* =========================
+     SIDEBAR THƯ VIỆN (TRÁI)
+  ========================== */
+
+  const sidebar = document.getElementById("librarySidebar");
+  const overlay = document.getElementById("overlay");
+  const storyList = document.getElementById("storyList");
+  const searchInput = document.getElementById("searchInput");
+
+  function toggleLibrary() {
+    if (!sidebar || !overlay) return;
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+
+  window.toggleLibrary = toggleLibrary;
+
+  let storiesData = [];
+
+  fetch("../../../stories.json")
+    .then(res => res.json())
+    .then(data => {
+      storiesData = data;
+      renderStories(data);
+    })
+    .catch(err => console.error("Lỗi load stories.json:", err));
+
+  function renderStories(data) {
+    if (!storyList) return;
+
+    storyList.innerHTML = "";
+
+    const pathParts = window.location.pathname.split("/");
+    const currentSlug = pathParts[2];
+
+    data.forEach((story, index) => {
+      const li = document.createElement("li");
+      li.style.animationDelay = `${Math.min(index * 0.03, 0.3)}s`;
+
+      const a = document.createElement("a");
+      a.href = `/web-doc-truyen/stories/${story.slug}/`;
+      a.textContent = `${story.title} (${story.chapters} chương)`;
+
+      if (story.slug === currentSlug) {
+        a.style.background = "#e0e7ff";
+      }
+
+      li.appendChild(a);
+      storyList.appendChild(li);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      const filtered = storiesData.filter(story =>
+        story.title.toLowerCase().includes(keyword)
+      );
+      renderStories(filtered);
+    });
+  }
+
+
+  /* =========================
+     SIDEBAR MỤC LỤC CHƯƠNG (PHẢI)
+  ========================== */
+
+  const chapterSidebar = document.getElementById("chapterSidebar");
+  const chapterOverlay = document.getElementById("chapterOverlay");
+  const chapterList = document.getElementById("chapterList");
+
+  function toggleChapterMenu() {
+    if (!chapterSidebar || !chapterOverlay) return;
+    chapterSidebar.classList.toggle("active");
+    chapterOverlay.classList.toggle("active");
+  }
+
+  window.toggleChapterMenu = toggleChapterMenu;
+
+  if (chapterList) {
+    fetch("../index.html")
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const toc = doc.querySelector(".content ul");
+        if (!toc) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        toc.querySelectorAll("li").forEach(li => {
+          const a = li.querySelector("a");
+          if (!a) return;
+
+          let href = a.getAttribute("href");
+
+          if (href.startsWith("chapter/")) {
+            href = href.replace("chapter/", "");
+          }
+
+          const newLi = document.createElement("li");
+          const newA = document.createElement("a");
+
+          newA.href = href;
+          newA.textContent = a.textContent;
+
+          if (href === currentPage) {
+            newA.style.background = "#e0e7ff";
+          }
+
+          newLi.appendChild(newA);
+          chapterList.appendChild(newLi);
+        });
+      })
+      .catch(err => console.error("Không load được mục lục:", err));
+  }
+});
+</script>
+</body>
+</html>

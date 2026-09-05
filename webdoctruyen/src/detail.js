@@ -30,7 +30,7 @@ function execute() {
         let metaMatch = html.match(/class=["']novel-meta["'][^>]*>([\s\S]*?)<\/div>/i);
         if (metaMatch) {
             let metaText = metaMatch[1].replace(/<[^>]+>/g, " ").trim();
-            if (metaText.indexOf("Hoàn thành") >= 0) status = "Hoàn thành";
+            if (metaText.indexOf(" Hoàn thành") >= 0) status = "Hoàn thành";
             else if (metaText.indexOf("Đang ra") >= 0) status = "Đang tiến hành";
             
             let chapMatch = metaText.match(/(\d+)\s*Chương/i);
