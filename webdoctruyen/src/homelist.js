@@ -3,85 +3,49 @@ const PAGE_SIZE = 5;
 
 function execute(url, page) {
     let currentPage = page ? parseInt(page) : 1;
-    let res = fetch(url);
-    if (!res.ok) return Response.error("Lỗi tải: " + res.status);
-    let doc = res.html();
 
-    // === LẤY DANH SÁCH LI TỪ HTML ===
-    // Tìm tất cả <li> nằm trong ul#story-list
-    let items = [];
+    // === TẢI TRỰC TIẾP stories.json ===
+    let jsonUrl = BASE_URL + "stories.json";
+    let jsonRes = fetch(jsonUrl);
+    if (!jsonRes.ok) return Response.error("⚠️ Không tải được danh sách truyện");
+
+    let stories = [];
     try {
-        items = doc.querySelectorAll("ul#story-list li");
+        stories = jsonRes.json() || [];
     } catch (e) {
-        try {
-            items = doc.querySelectorAll(".story-list li");
-        } catch (e2) {
-            // Fallback: lấy tất cả <li> trên trang
-            items = doc.querySelectorAll("li");
-        }
+        return Response.error("⚠️ Dữ liệu JSON không hợp lệ");
     }
-
-    if (!items || items.length === 0) {
+    if (!Array.isArray(stories) || stories.length === 0) {
         return Response.success([], null);
     }
 
+    // === CHUYỂN ĐỊNH DẠNG DỮ LIỆU ===
     let allList = [];
-    for (let i = 0; i < items.length; i++) {
-        let item = items[i];
-        let linkEl = null;
-        try {
-            linkEl = item.querySelector("a");
-        } catch (e) {
-            continue;
-        }
-        if (!linkEl) continue;
+    for (let i = 0; i < stories.length; i++) {
+        let s = stories[i];
+        let slug = s.slug || "";
+        let link = BASE_DOMAIN + "/web-doc-truyen/stories/" + slug + "/index.html";
 
-        let name = "";
-        try {
-            name = linkEl.textContent || "";
-        } catch (e) {
-            continue;
-        }
-        name = name.trim();
-        if (!name) continue;
+        // Trạng thái
+        let status = s.status === "hoan-thanh" ? "Hoàn thành" : "Đang tiến hành";
 
-        let href = linkEl.getAttribute("href") || "";
-        if (!href) continue;
-
-        let fullLink = href.indexOf("http") === 0 ? href : BASE_DOMAIN + href;
-        let text = "";
-        try {
-            text = item.textContent || "";
-        } catch (e) {
-            text = name;
-        }
-
-        // Tách thông tin
-        let author = "Không rõ";
-        let authorMatch = text.match(/✍️\s*([^·\n]+)/);
-        if (authorMatch && authorMatch[1]) {
-            author = authorMatch[1].trim();
-        }
-
-        let isCompleted = text.indexOf("✅ Hoàn thành") >= 0;
-
-        let chapNum = "?";
-        let chapMatch = text.match(/📖\s*(\d+)\s*chương/);
-        if (chapMatch && chapMatch[1]) {
-            chapNum = chapMatch[1];
+        // Thể loại
+        let genreText = "";
+        if (Array.isArray(s.genre) && s.genre.length > 0) {
+            genreText = s.genre.join(" · ");
         }
 
         allList.push({
-            name: name,
-            link: fullLink,
-            author: author,
-            description: author + " · " + (isCompleted ? "Hoàn thành" : "Đang tiến hành") + " · " + chapNum + " chương",
-            totalChapters: chapNum,
-            status: isCompleted ? "Hoàn thành" : "Đang tiến hành"
+            name: s.title || "Không có tiêu đề",
+            link: link,
+            author: s.author || "Không rõ",
+            description: (s.author || "Không rõ") + " · " + status + " · " + (s.chapters || 0) + " chương" + (genreText ? " · " + genreText : ""),
+            totalChapters: String(s.chapters || "?"),
+            status: status
         });
     }
 
-    // Phân trang
+    // === PHÂN TRANG ===
     let totalPages = Math.ceil(allList.length / PAGE_SIZE);
     let start = (currentPage - 1) * PAGE_SIZE;
     let pageData = [];

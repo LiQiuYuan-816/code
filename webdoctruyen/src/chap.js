@@ -1,70 +1,47 @@
 load('config.js');
+function execute() {
+    let chapUrl = arguments[0] || "";
+    if (!chapUrl) return Response.error("⚠️ Không có link chương");
 
-function execute(url) {
-    let res = fetch(url);
-    if (!res.ok) return Response.error("⚠️ Lỗi tải chương: " + res.status);
-    let doc = res.html();
+    let res = fetch(chapUrl);
+    if (!res.ok) return Response.error("⚠️ Không tải được chương: " + res.status);
 
-    // ===== LẤY TIÊU ĐỀ CHƯƠNG =====
+    let html = res.html().toString();
+
+    // === LẤY ĐÚNG KHỐI NỘI DUNG ===
+    // Lấy nội dung trong <div class="content chapter-content"> và dừng trước <!-- ===== NAV DƯỚI ===== -->
+    let contentMatch = html.match(
+        /class=["']content chapter-content["'][^>]*>([\s\S]*?)<!--\s*=====\s*NAV DƯỚI\s*=====\s*-->/i
+    );
+    if (!contentMatch || !contentMatch[1]) {
+        return Response.error("⚠️ Không tìm thấy nội dung chương");
+    }
+    let rawContent = contentMatch[1];
+
+    // === LỌC HTML → VĂN BẢN ===
+    let text = rawContent
+        .replace(/<script[\s\S]*?<\/script>/gi, " ")     // Bỏ script
+        .replace(/<style[\s\S]*?<\/style>/gi, " ")       // Bỏ style
+        .replace(/<br\s*\/?>/gi, "\n")                   // <br> → xuống dòng
+        .replace(/<\/p>/gi, "\n\n")                      // </p> → 2 dòng
+        .replace(/<[^>]+>/g, "")                         // Bỏ tất cả thẻ HTML còn lại
+        .replace(/&nbsp;/g, " ")                         // Thay khoảng trắng
+        .replace(/\u3000/g, " ")                         // Khoảng rộng Nhật/Việt
+        .replace(/\r\n/g, "\n")
+        .replace(/\n{3,}/g, "\n\n")                      // Gom nhiều dòng trống
+        .trim();
+
+    // === TIÊU ĐỀ CHƯƠNG ===
     let chapterTitle = "";
-    try {
-        let ms = doc.querySelector(".novel-meta span");
-        if (ms) chapterTitle = (ms.textContent || "").trim();
-    } catch(e) {}
+    // Cách 1: Lấy từ thẻ <span> trong .novel-meta
+    let titleFromHtml = html.match(/<div class=["']novel-meta["'][^>]*>\s*<span>([\s\S]*?)<\/span>/i);
+    if (titleFromHtml) chapterTitle = titleFromHtml[1].trim();
+    // Cách 2: Lấy từ URL nếu không tìm thấy
     if (!chapterTitle) {
-        try {
-            let nt = doc.querySelector(".novel-title");
-            if (nt) chapterTitle = (nt.textContent || "").trim();
-        } catch(e) {}
-    }
-    if (!chapterTitle) chapterTitle = "Chương";
-
-    // ===== LẤY NỘI DUNG CHỈ VĂN BẢN THUẦN TUÝ =====
-    let contentParts = [];
-    try {
-        let contentEl = doc.querySelector(".chapter-content") || doc.querySelector("main .content") || doc.querySelector("main");
-        if (contentEl) {
-            let paragraphs = contentEl.querySelectorAll("p");
-            if (paragraphs && paragraphs.length > 0) {
-                for (let i = 0; i < paragraphs.length; i++) {
-                    // === CHỈ LẤY textContent === BỎ HOÀN TOÀN định dạng, style, font ===
-                    let text = (paragraphs[i].textContent || "").trim();
-                    if (text) contentParts.push(text);
-                }
-            }
-        }
-    } catch(e) {}
-
-    // Fallback: lấy văn bản trong <main>
-    if (contentParts.length === 0) {
-        try {
-            let mainEl = doc.querySelector("main");
-            if (mainEl) {
-                // === CHỈ LẤY textContent thuần túy ===
-                let allText = mainEl.textContent || "";
-                // Xóa các phần điều hướng phụ lục
-                allText = allText.replace(/📑 Mục lục[\s\S]*?⏭ Chương sau/g, "");
-                allText = allText.replace(/📌 Kẹp sách[\s\S]*$/g, "");
-                allText = allText.replace(/^\s+|\s+$/g, "");
-                // Tách đoạn văn bản
-                let arr = allText.split(/\n\s*\n/);
-                for (let j = 0; j < arr.length; j++) {
-                    let p = arr[j].trim();
-                    if (p) contentParts.push(p);
-                }
-            }
-        } catch(e) {}
+        let nameFromUrl = chapUrl.match(/chapter\/([^\/]+\.html)/i);
+        if (nameFromUrl) chapterTitle = nameFromUrl[1].replace(".html", "");
+        else chapterTitle = "Chương";
     }
 
-    // ===== TRẢ VỀ ĐỊNH DẠNG VĂN BẢN THUẦN TUÝ =====
-    // Không có thẻ HTML, không có style/font → vBook tự hiển thị theo font mặc định
-    let result = "### " + chapterTitle + "\n\n";
-    if (contentParts.length > 0) {
-        // === Chỉ nối văn bản bằng dấu xuống dòng === KHÔNG có định dạng HTML nào khác
-        result = result + contentParts.join("\n\n");
-    } else {
-        result = result + "⚠️ Không trích xuất được nội dung chương.";
-    }
-
-    return Response.success(result);
+    return Response.success("### " + chapterTitle + "\n\n" + text);
 }

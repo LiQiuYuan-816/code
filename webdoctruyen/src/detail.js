@@ -1,121 +1,78 @@
 load('config.js');
 
-function execute(url) {
-    let res = fetch(url);
-    if (!res.ok) return Response.error("Lỗi tải trang: " + res.status);
-    let doc = res.html();
-
-    let urlObj = new URL(url);
-    let pathname = urlObj.pathname;
-    let pathParts = pathname.split("/");
-    let currentSlug = "";
-    if (pathParts.length >= 2) {
-        currentSlug = pathParts[pathParts.length - 2];
-    }
-
-    let storiesData = [];
+function execute() {
     try {
-        let jsonRes = fetch(BASE_DOMAIN + "/web-doc-truyen/stories.json");
-        if (jsonRes.ok) {
-            storiesData = jsonRes.json() || [];
+        let pageUrl = arguments[0] || "";
+        if (!pageUrl) return Response.error("⚠️ Không có link truyện");
+
+        let res = fetch(pageUrl);
+        if (!res.ok) return Response.error("⚠️ Không tải được trang: " + res.status);
+        
+        let html = res.text().toString();
+
+        // === TÊN TRUYỆN ===
+        let name = "Truyện";
+        let nameMatch = html.match(/class=["']novel-title["'][^>]*>([\s\S]*?)<\/h1>/i);
+        if (nameMatch) {
+            name = nameMatch[1].replace(/<[^>]+>/g, "").trim() || "Truyện";
         }
-    } catch(e) {}
 
-    let jsonInfo = {};
-    if (storiesData.length > 0 && currentSlug) {
-        for (let i = 0; i < storiesData.length; i++) {
-            if (storiesData[i].slug === currentSlug) {
-                jsonInfo = storiesData[i];
-                break;
-            }
+        // === TÁC GIẢ ===
+        let author = "Không rõ";
+        let authMatch = html.match(/class=["']top-right author["'][^>]*>([\s\S]*?)<\/div>/i);
+        if (authMatch) {
+            author = authMatch[1].replace("✍️", "").replace(/<[^>]+>/g, "").trim() || "Không rõ";
         }
-    }
 
-    // Lấy tên truyện
-    let name = jsonInfo.title || "";
-    if (!name) {
-        try {
-            let h1 = doc.querySelector("h1");
-            if (h1) name = h1.textContent || "";
-        } catch(e) {}
-    }
-    if (!name) {
-        try {
-            let nt = doc.querySelector(".novel-title");
-            if (nt) name = nt.textContent || "";
-        } catch(e) {}
-    }
-    name = name.trim() || "Truyện";
-
-    // Lấy tác giả
-    let author = jsonInfo.author || "";
-    if (!author) {
-        try {
-            let authEl = doc.querySelector(".author");
-            if (authEl) {
-                author = authEl.textContent || "";
-                author = author.replace("✍️", "").trim();
-            }
-        } catch(e) {}
-    }
-    author = author || "Không rõ";
-
-    // Lấy bìa
-    let cover = jsonInfo.cover || "";
-    if (!cover) {
-        try {
-            let img = doc.querySelector(".cover-image img");
-            if (img) cover = img.getAttribute("src") || "";
-        } catch(e) {}
-    }
-
-    // Thông tin khác
-    let totalChapters = jsonInfo.chapters || "?";
-    let status = "Chưa rõ";
-    try {
-        let metaEl = doc.querySelector(".novel-meta");
-        if (metaEl) {
-            let metaText = metaEl.textContent || "";
+        // === TRẠNG THÁI & SỐ CHƯƠNG ===
+        let status = "Chưa rõ";
+        let totalChapters = "?";
+        let metaMatch = html.match(/class=["']novel-meta["'][^>]*>([\s\S]*?)<\/div>/i);
+        if (metaMatch) {
+            let metaText = metaMatch[1].replace(/<[^>]+>/g, " ").trim();
             if (metaText.indexOf("Hoàn thành") >= 0) status = "Hoàn thành";
-            else if (metaText.indexOf("Đang tiến hành") >= 0) status = "Đang tiến hành";
-            let chapMatch = metaText.match(/(\d+)\s*chương/);
-            if (chapMatch && chapMatch[1]) totalChapters = chapMatch[1];
+            else if (metaText.indexOf("Đang ra") >= 0) status = "Đang tiến hành";
+            
+            let chapMatch = metaText.match(/(\d+)\s*Chương/i);
+            if (chapMatch) totalChapters = chapMatch[1];
         }
-    } catch(e) {}
 
-    // Mô tả
-    let description = "Chưa có mô tả.";
-    try {
-        let descEl = doc.querySelector(".section .content");
-        if (descEl) description = (descEl.textContent || "").trim() || description;
-    } catch(e) {}
-
-    // Danh sách chương
-    let chapters = [];
-    try {
-        let links = doc.querySelectorAll("section li a");
-        if (links && links.length > 0) {
-            for (let j = 0; j < links.length; j++) {
-                let a = links[j];
-                let href = a.getAttribute("href") || "";
-                let title = (a.textContent || "").trim();
-                if (href && title) {
-                    chapters.push({
-                        name: title,
-                        url: new URL(href, url).href
-                    });
-                }
-            }
+        // === THỂ LOẠI ===
+        let category = "Chưa rõ";
+        let tagMatch = html.match(/class=["']tag-line["'][^>]*>([\s\S]*?)<\/div>/i);
+        if (tagMatch) {
+            category = tagMatch[1]
+                .replace(/<span[^>]*>/gi, "· ")
+                .replace(/<\/span>/gi, "")
+                .replace(/<[^>]+>/g, "")
+                .trim() || "Chưa rõ";
         }
-    } catch(e) {}
 
-    return Response.success({
-        name: name,
-        cover: cover,
-        author: author,
-        description: description,
-        status: status,
-        totalChapters: totalChapters,
-        chapters: chapters
-    });
+        // === VĂN ÁN ===
+        let description = "Chưa có mô tả.";
+        let descMatch = html.match(/📜 Văn án[\s\S]*?class=["']content["'][^>]*>([\s\S]*?)<\/div>/i);
+        if (descMatch) {
+            description = descMatch[1]
+                .replace(/<\/p>/gi, "\n\n")
+                .replace(/<[^>]+>/g, "")
+                .trim() || "Chưa có mô tả.";
+        }
+
+        // === BASE URL ===
+        let baseUrl = pageUrl.substring(0, pageUrl.lastIndexOf("/") + 1);
+
+        // ✅ Bỏ hoàn toàn trường chapters khỏi kết quả trả về
+        return Response.success({
+            name: name,
+            cover: "",
+            author: author,
+            description: description,
+            status: status,
+            category: category,
+            totalChapters: totalChapters
+        });
+
+    } catch (err) {
+        return Response.error("⚠️ Lỗi xử lý: " + err.message);
+    }
 }
