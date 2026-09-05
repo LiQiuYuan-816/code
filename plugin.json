@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "author": "liqiuyuan",
+    "description": "Nguồn truyện từ Tàng Thư Các Cá Nhân trên GitHub Pages"
+  },
+  "data": [
+    {
+      "name": "Tàng Thư Các Cá Nhân",
+      "author": "liqiuyuan",
+      "path": "https://liqiuyuan-816.github.io/web-doc-truyen/plugin.json",
+      "version": 1,
+      "source": "https://liqiuyuan-816.github.io/web-doc-truyen/",
+      "icon": "https://liqiuyuan-816.github.io/web-doc-truyen/favicon.ico",
+      "description": "Đọc truyện trên trang Tàng Thư Các Cá Nhân",
+      "type": "novel",
+      "locale": "vi_VN"
+    }
+  ]
+}
